@@ -1,0 +1,18 @@
+<resources>
+    <!-- this configures the data source to the h2 database server for the tomee deployment -->
+<!--    <Resource id="${persistenceUnitName}_DS" type="javax.sql.DataSource">-->
+<!--        jdbcDriver = org.h2.Driver-->
+<!--        jdbcUrl = jdbc:h2:tcp://localhost/~/${persistenceUnitName}_db-->
+<!--        jtaManaged = true-->
+<!--        password =-->
+<!--        userName = sa-->
+<!--    </Resource>-->
+    <!-- this is the configuration for the embedded h2 deployment -->
+    <Resource id="${persistenceUnitName}_DS" type="javax.sql.DataSource">
+        jdbcDriver = org.h2.Driver
+        jdbcUrl = jdbc:h2:mem:${persistenceUnitName}_db;DB_CLOSE_DELAY=-1
+        jtaManaged = true
+        password =
+        userName = sa
+    </Resource>
+</resources>
