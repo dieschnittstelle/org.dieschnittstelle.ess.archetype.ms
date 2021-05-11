@@ -10,6 +10,12 @@
         <requiredProperty key="persistenceUnitName">
             <defaultValue>MyData</defaultValue>
         </requiredProperty>
+        <!-- we only specify the http port, but note
+        that if multiple instances of tomee are run,
+        also the admin ports would need to be modified -->
+        <requiredProperty key="tomeeHttpPort">
+            <defaultValue>7081</defaultValue>
+        </requiredProperty>
     </requiredProperties>
 
     <fileSets>
