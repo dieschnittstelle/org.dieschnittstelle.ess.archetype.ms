@@ -35,6 +35,7 @@
             <directory>src/main/webapp</directory>
             <includes>
                 <include>**/*.xml</include>
+                <include>**/*.html</include>
             </includes>
         </fileSet>
     </fileSets>

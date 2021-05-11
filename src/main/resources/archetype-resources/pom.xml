@@ -39,6 +39,9 @@
                 <configuration>
                     <context>ROOT</context>
                     <tomeeClassifier>microprofile</tomeeClassifier>
+                    <tomeeHttpPort>7081</tomeeHttpPort>
+                    <tomeeAjpPort>7011</tomeeAjpPort>
+                    <tomeeShutdownPort>7007</tomeeShutdownPort>
                 </configuration>
             </plugin>
         </plugins>
