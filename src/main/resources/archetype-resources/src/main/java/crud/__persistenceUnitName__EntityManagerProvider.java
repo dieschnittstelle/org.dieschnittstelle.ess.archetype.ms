@@ -10,6 +10,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/*
+ * see for this solution to obtain an entity manager for a given pu by a producer
+ * and using a custom qualifier: https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/
+ */
 @ApplicationScoped
 public class ${persistenceUnitName}EntityManagerProvider {
 
