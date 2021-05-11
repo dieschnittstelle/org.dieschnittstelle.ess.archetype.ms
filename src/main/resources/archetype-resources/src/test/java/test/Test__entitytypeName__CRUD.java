@@ -10,14 +10,13 @@ import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.List;
 
-//import static org.junit.Assert.*;
-//import org.junit.Before;
-//import org.junit.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+/*
+ * see https://github.com/AdamBien/JakartaEE-essentials-archetype/find/master as a basis for this implementation
+ */
 public class Test${entitytypeName}CRUD {
 
     private static ${entitytypeName}CRUD apiProxy;
