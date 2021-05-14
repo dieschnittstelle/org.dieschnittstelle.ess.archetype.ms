@@ -5,11 +5,11 @@ import ${groupId}.entities.${entitytypeName};
 
 import javax.persistence.EntityManager;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 import javax.inject.Inject;
 
-@RequestScoped
+@ApplicationScoped
 @Transactional
 public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
 
