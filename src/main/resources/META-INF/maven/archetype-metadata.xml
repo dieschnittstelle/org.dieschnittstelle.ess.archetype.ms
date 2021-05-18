@@ -44,5 +44,12 @@
                 <include>**/*.html</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true">
+            <directory>containerise</directory>
+            <includes>
+                <include>Dockerfile</include>
+                <include>containerise.sh</include>
+            </includes>
+        </fileSet>
     </fileSets>
 </archetype-descriptor>
