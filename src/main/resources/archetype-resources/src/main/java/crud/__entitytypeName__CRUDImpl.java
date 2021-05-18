@@ -1,7 +1,7 @@
 package ${groupId}.crud;
 
 import java.util.List;
-import ${groupId}.entities.${entitytypeName};
+import ${groupId}.entities.${entitytypeName}Composite;
 
 import javax.persistence.EntityManager;
 
@@ -17,28 +17,37 @@ public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
     @${persistenceUnitName}EntityManagerProvider.${persistenceUnitName}DataAccessor
     private EntityManager em;
 
-    public List<${entitytypeName}> readAll${entitytypeName}s() {
+    public List<${entitytypeName}Composite> readAll${entitytypeName}Composites() {
+
+        System.out.println("----- readAll${entitytypeName}Composites()");
+
         return (List)em
-                .createQuery("SELECT e FROM ${entitytypeName} e")
+                .createQuery("SELECT e FROM ${entitytypeName}Composite e")
                 .getResultList();
     }
 
-    public ${entitytypeName} read${entitytypeName}(long id) {
-        return em.find(${entitytypeName}.class,id);
+    public ${entitytypeName}Composite read${entitytypeName}Composite(long id) {
+        System.out.println("----- read${entitytypeName}Composite(): " + id);
+
+        return em.find(${entitytypeName}Composite.class,id);
     }
 
-    public ${entitytypeName} create${entitytypeName}(${entitytypeName} instance) {
+    public ${entitytypeName}Composite create${entitytypeName}Composite(${entitytypeName}Composite instance) {
+        System.out.println("----- create${entitytypeName}Composite(): " + instance);
         em.persist(instance);
         return instance;
     }
 
-    public ${entitytypeName} update${entitytypeName}(long id,${entitytypeName} instance) {
+    public ${entitytypeName}Composite update${entitytypeName}Composite(long id,${entitytypeName}Composite instance) {
+        System.out.println("----- update${entitytypeName}Composite(): " + id + ": " + instance);
         instance = em.merge(instance);
         return instance;
     }
 
-    public boolean delete${entitytypeName}(long id) {
-        em.remove(this.read${entitytypeName}(id));
+    public boolean delete${entitytypeName}Composite(long id) {
+        System.out.println("----- delete${entitytypeName}Composite(): " + id);
+
+        em.remove(this.read${entitytypeName}Composite(id));
         return true;
     }
 

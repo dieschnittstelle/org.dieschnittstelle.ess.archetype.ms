@@ -6,13 +6,13 @@ import javax.persistence.Id;
 
 
 @Entity
-public class ${entitytypeName} {
+public class ${entitytypeName}Part {
 
     @Id
     @GeneratedValue
     private long id;
 
-    public ${entitytypeName}() {
+    public ${entitytypeName}Part() {
 
     }
 

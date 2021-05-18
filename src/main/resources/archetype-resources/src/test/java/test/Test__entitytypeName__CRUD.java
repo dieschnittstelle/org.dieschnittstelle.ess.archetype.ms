@@ -1,7 +1,8 @@
 package ${groupId}.test;
 
 import ${groupId}.crud.${entitytypeName}CRUD;
-import ${groupId}.entities.${entitytypeName};
+import ${groupId}.entities.${entitytypeName}Composite;
+import ${groupId}.entities.${entitytypeName}Part;
 
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
@@ -34,27 +35,38 @@ public class Test${entitytypeName}CRUD {
     @Test
     public void run() {
         // read all instances
-        List<${entitytypeName}> initialInstances = apiProxy.readAll${entitytypeName}s();
+        List<${entitytypeName}Composite> initialInstances = apiProxy.readAll${entitytypeName}Composites();
 
         assertNotNull(initialInstances,"instances list can be read");
 
-        String name1 = "test instance1";
-        String name2 = "test instance2";
+        String name1 = "composite1";
+        String name2 = "composite2";
+        String name11 = "part1";
+        String name21 = "part2";
 
-        ${entitytypeName} instance1 = new ${entitytypeName}();
+        ${entitytypeName}Composite instance1 = new ${entitytypeName}Composite();
         instance1.setName(name1);
-        ${entitytypeName} instance2 = new ${entitytypeName}();
+        ${entitytypeName}Composite instance2 = new ${entitytypeName}Composite();
         instance2.setName(name2);
+
+        ${entitytypeName}Part part1 = new ${entitytypeName}Part();
+        part1.setName(name11);
+        ${entitytypeName}Part part2 = new ${entitytypeName}Part();
+        part2.setName(name21);
+
+        instance1.getParts().add(part1);
+        instance2.getParts().add(part2);
+
 
         /* CREATE + READ */
         // create two instances
-        instance1 = apiProxy.create${entitytypeName}(instance1);
-        instance2 = apiProxy.create${entitytypeName}(instance2);
+        instance1 = apiProxy.create${entitytypeName}Composite(instance1);
+        instance2 = apiProxy.create${entitytypeName}Composite(instance2);
 
-        assertEquals(2,apiProxy.readAll${entitytypeName}s().size()-initialInstances.size(),"instances list is appended on create");
+        assertEquals(2,apiProxy.readAll${entitytypeName}Composites().size()-initialInstances.size(),"instances list is appended on create");
 
         // read the instances and check whether they are equivalent
-        ${entitytypeName} testInstance = apiProxy.read${entitytypeName}(instance1.getId());
+        ${entitytypeName}Composite testInstance = apiProxy.read${entitytypeName}Composite(instance1.getId());
 
         assertNotNull(testInstance,"new instance can be read");
         assertEquals(instance1.getName(),testInstance.getName(),"new instance name is correct");
@@ -63,16 +75,16 @@ public class Test${entitytypeName}CRUD {
         // change the local name
         instance1.setName(instance1.getName() + " " + instance1.getName());
         // update the instance on the server-side
-        apiProxy.update${entitytypeName}(instance1.getId(),instance1);
+        apiProxy.update${entitytypeName}Composite(instance1.getId(),instance1);
 
         // read out the instance and compare the names
-        testInstance = apiProxy.read${entitytypeName}(instance1.getId());
+        testInstance = apiProxy.read${entitytypeName}Composite(instance1.getId());
         assertEquals(instance1.getName(), testInstance.getName(),"instance name is updated correctly");
 
         /* DELETE */
-        assertTrue(apiProxy.delete${entitytypeName}(instance1.getId()),"instance can be deleted");
-        assertNull(apiProxy.read${entitytypeName}(instance1.getId()),"deleted instance does not exist anymore");
-        assertEquals(initialInstances.size()+1,apiProxy.readAll${entitytypeName}s().size(),"instance list is reduced on delete");
+        assertTrue(apiProxy.delete${entitytypeName}Composite(instance1.getId()),"instance can be deleted");
+        assertNull(apiProxy.read${entitytypeName}Composite(instance1.getId()),"deleted instance does not exist anymore");
+        assertEquals(initialInstances.size()+1,apiProxy.readAll${entitytypeName}Composites().size(),"instance list is reduced on delete");
     }
 
 }

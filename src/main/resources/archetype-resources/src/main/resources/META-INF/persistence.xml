@@ -5,7 +5,8 @@
 	<persistence-unit name="${persistenceUnitName}_PU">
 		<jta-data-source>java:/${persistenceUnitName}_DS</jta-data-source>
 		<!-- TODO: new entity classes need to be added here! -->
-		<class>${groupId}.entities.${entitytypeName}</class>
+		<class>${groupId}.entities.${entitytypeName}Part</class>
+		<class>${groupId}.entities.${entitytypeName}Composite</class>
 		<properties>
 			<!-- hibernate/wildfly automatic schema generation -->
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />

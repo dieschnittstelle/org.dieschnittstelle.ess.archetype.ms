@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import ${groupId}.entities.${entitytypeName};
+import ${groupId}.entities.${entitytypeName}Composite;
 
 @Path("/${entitytypeName}s")
 @Produces({MediaType.APPLICATION_JSON})
@@ -13,21 +13,21 @@ import ${groupId}.entities.${entitytypeName};
 public interface ${entitytypeName}CRUD {
 
     @GET
-    public List<${entitytypeName}> readAll${entitytypeName}s();
+    public List<${entitytypeName}Composite> readAll${entitytypeName}Composites();
 
     @GET
     @Path("/{id}")
-    public ${entitytypeName} read${entitytypeName}(@PathParam("id") long id);
+    public ${entitytypeName}Composite read${entitytypeName}Composite(@PathParam("id") long id);
 
     @POST
-    public ${entitytypeName} create${entitytypeName}(${entitytypeName} instance);
+    public ${entitytypeName}Composite create${entitytypeName}Composite(${entitytypeName}Composite instance);
 
     @PUT
     @Path("/{id}")
-    public ${entitytypeName} update${entitytypeName}(@PathParam("id") long id,${entitytypeName} instance);
+    public ${entitytypeName}Composite update${entitytypeName}Composite(@PathParam("id") long id,${entitytypeName}Composite instance);
 
     @DELETE
     @Path("/{id}")
-    public boolean delete${entitytypeName}(@PathParam("id") long id);
+    public boolean delete${entitytypeName}Composite(@PathParam("id") long id);
 
 }
