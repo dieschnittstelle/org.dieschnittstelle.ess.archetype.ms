@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>${entitytypeName}s</title>
+</head>
+<script type="text/javascript">
+	var instances;
+
+	function readAllInstances() {
+		//alert("readAllInstances()");
+
+		callWebapp("GET", "/${entitytypeName}s", null, function(xmlhttp) {
+			instances = JSON.parse(xmlhttp.responseText);
+			drawInstancesTable();
+		});
+	}
+
+	function deleteInstance(instanceId) {
+
+		//alert("delete: " + instanceId);
+
+		callWebapp("DELETE", "/${entitytypeName}s/" + instanceId, null, function(xmlhttp) {
+					if ("true" == xmlhttp.responseText) {
+						var deleteIndex = -1;
+						// we iterate over the list until we have found the item
+						for (var i=0 ; i<instances.length ; i++) {
+							if (instances[i].id == instanceId) {
+								deleteIndex = i;
+								//break;
+							}
+						}
+
+						if (deleteIndex != -1) {
+							instances.splice(deleteIndex,1);
+							drawInstancesTable();
+						}
+					}
+				}
+		);
+
+	}
+
+	function createInstance(createForm) {
+		//alert("createInstance: " + createForm);
+
+		var instance = new Object();
+		instance.name = createForm.nameComposite.value;
+		var part = new Object();
+		part.name = createForm.namePart.value;
+		instance.parts = [part];
+
+		callWebapp("POST", "/${entitytypeName}s", instance, function(xmlhttp) {
+			//alert("read serialised: " + xmlhttp.responseText);
+
+			createdInstance = eval("(" + xmlhttp.responseText + ")");
+			//alert("deserialised: " + createdInstance);
+
+			instances.push(createdInstance);
+			drawInstancesTable();
+		});
+	}
+
+
+	/*
+     * call the webapp passing parameters and callback methods
+     *
+     * method: the http method to be executed
+     * requestpath: the path to be appended to the root path of the webapp
+     * obj: an (optional object to be passed)
+     * onsucccess: callback in case of success
+     * onerror: callback in case of error
+     */
+	function callWebapp(method, requestpath, obj, onsuccess, onerror) {
+		// create the request
+		var xmlhttp = new XMLHttpRequest();
+
+		var url = "api" + requestpath;
+
+		// access the url
+		xmlhttp.open(method, url, true);
+
+		var json;
+
+		// set the proper header information along with the request
+		if (obj) {
+			// create a json representation from the object
+			json = JSON.stringify(obj);
+			// set the json header
+			xmlhttp.setRequestHeader("Content-type", "application/json");
+		}
+
+		// set the header that we only accept json content
+		xmlhttp.setRequestHeader("Accept", "application/json");
+
+		// define the callback function using our own callback arguments
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4) {
+				if (xmlhttp.status == 200) {
+					if (onsuccess) {
+						onsuccess(xmlhttp);
+					} else {
+						alert("request "
+								+ url
+								+ " executed successfully, but no onsuccess callback is specified.")
+					}
+				} else {
+					if (onerror) {
+						onerror(xmlhttp);
+					} else {
+						alert("got error processing request "
+								+ url
+								+ ", but no onerror callback is specified. Status code is: "
+								+ xmlhttp.status);
+					}
+				}
+			}
+		};
+
+		// send the request and pass the json string as content
+		if (obj) {
+			xmlhttp.send(json);
+		} else {
+			xmlhttp.send();
+		}
+	}
+
+	function drawInstancesTable() {
+		// retrieve the table content
+		var tableContentElement = document.getElementById("instancesTable");
+
+		// remove all data
+		while (tableContentElement.firstChild) {
+			tableContentElement.removeChild(tableContentElement.firstChild);
+		}
+
+		// add the header
+		var tr = document.createElement("tr");
+		tableContentElement.appendChild(tr);
+
+		var th = document.createElement("th");
+		tr.appendChild(th);
+		th.appendChild(document.createTextNode("Id"));
+
+		th = document.createElement("th");
+		tr.appendChild(th);
+		th.appendChild(document.createTextNode("Composite Name"));
+
+		th = document.createElement("th");
+		tr.appendChild(th);
+		th.appendChild(document.createTextNode("Part Name"));
+
+		th = document.createElement("th");
+		tr.appendChild(th);
+
+		// and then we add a new tr for each element of the list
+		for (var i = 0; i < instances.length; i++) {
+			var currentInstance = instances[i];
+
+			//alert("will add row for: " + currentInstance);
+
+			//alert("add instance: " + currentInstance);		
+			var tr = document.createElement("tr");
+			tableContentElement.appendChild(tr);
+			// id
+			var td = document.createElement("td");
+			tr.appendChild(td);
+			td.appendChild(document.createTextNode(currentInstance.id));
+			// name
+			td = document.createElement("td");
+			tr.appendChild(td);
+			td.appendChild(document.createTextNode(currentInstance.name));
+			// name
+			td = document.createElement("td");
+			tr.appendChild(td);
+			if (currentInstance.parts && currentInstance.parts[0]) {
+				td.appendChild(document.createTextNode(currentInstance.parts[0].name));
+			}
+			// now create the delete form
+			td = document.createElement("td");
+			tr.appendChild(td);
+			var form = document.createElement("form");
+			td.appendChild(form);
+			form.setAttribute("method", "POST");
+			form.setAttribute("action","javascript:deleteInstance(\'" + currentInstance.id + "\')");
+			var input = document.createElement("input");
+			form.appendChild(input);
+			input.setAttribute("type", "submit");
+			input.setAttribute("value", "delete");
+		}
+	}
+</script>
+<body onload="readAllInstances()">
+<h3>JRS Instances</h3>
+
+<!-- create a table -->
+<table border="1" id="instancesTable">
+</table>
+<!--  create a new instance -->
+<h3>New Instance</h3>
+<form id="createForm" method="POST"
+	  action="javascript:createInstance(document.getElementById('createForm'))">
+	<table>
+		<tr>
+			<td>Composite Name:</td>
+			<td><input type="text" name="nameComposite"></td>
+		</tr>
+		<tr>
+			<td>Part Name:</td>
+			<td><input type="text" name="namePart"></td>
+		</tr>
+	</table>
+	<input type="submit" value="create" />
+</form>
+</body>
+</html>
