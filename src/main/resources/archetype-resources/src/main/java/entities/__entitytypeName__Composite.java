@@ -1,10 +1,6 @@
 package ${groupId}.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.CascadeType;
+import javax.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +13,7 @@ public class ${entitytypeName}Composite {
     @GeneratedValue
     private long id;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<${entitytypeName}Part> parts = new HashSet();
 
     public ${entitytypeName}Composite() {

@@ -159,7 +159,7 @@
 
 			//alert("will add row for: " + currentInstance);
 
-			//alert("add instance: " + currentInstance);		
+			//alert("add instance: " + currentInstance);
 			var tr = document.createElement("tr");
 			tableContentElement.appendChild(tr);
 			// id
@@ -173,8 +173,11 @@
 			// name
 			td = document.createElement("td");
 			tr.appendChild(td);
-			if (currentInstance.parts && currentInstance.parts[0]) {
-				td.appendChild(document.createTextNode(currentInstance.parts[0].name));
+			if (currentInstance.parts) {
+				currentInstance.parts.forEach(part => {
+					const partnode = document.createTextNode(part.name + "; ");
+					td.appendChild(partnode);
+				})
 			}
 			// now create the delete form
 			td = document.createElement("td");
@@ -188,14 +191,34 @@
 			input.setAttribute("type", "submit");
 			input.setAttribute("value", "delete");
 		}
+
+		showInstancesNames();
+	}
+
+	function showInstancesNames() {
+		const instancesNamesEl = document.getElementById("instancesNames");
+
+		callWebapp("GET", "/${entitytypeName}Names", null, function(xmlhttp) {
+			const names = JSON.parse(xmlhttp.responseText);
+			instancesNamesEl.innerHTML = "";
+			names.forEach(n => {
+				const currentnameli = document.createElement("li");
+				currentnameli.textContent = n;
+				instancesNamesEl.appendChild(currentnameli);
+			})
+		});
 	}
 </script>
 <body onload="readAllInstances()">
-<h3>JRS Instances</h3>
+<h3>${entitytypeName} Instances</h3>
 
 <!-- create a table -->
 <table border="1" id="instancesTable">
 </table>
+<!-- show the instances names (as an example for the output of a "business logic" service on top of elementary CRUD operations -->
+<h3>${entitytypeName} Instance Names</h3>
+<ul id="instancesNames">
+</ul>
 <!--  create a new instance -->
 <h3>New Instance</h3>
 <form id="createForm" method="POST"

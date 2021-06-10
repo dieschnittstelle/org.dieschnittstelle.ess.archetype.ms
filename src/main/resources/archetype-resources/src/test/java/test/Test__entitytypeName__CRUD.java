@@ -1,5 +1,6 @@
 package ${groupId}.test;
 
+import ${groupId}.${entitytypeName}NameService;
 import ${groupId}.crud.${entitytypeName}CRUD;
 import ${groupId}.entities.${entitytypeName}Composite;
 import ${groupId}.entities.${entitytypeName}Part;
@@ -9,7 +10,9 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 
 import javax.ws.rs.core.Response;
 import java.net.URI;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,53 +23,67 @@ import org.junit.jupiter.api.Test;
  */
 public class Test${entitytypeName}CRUD {
 
-    private static ${entitytypeName}CRUD apiProxy;
+    private static ${entitytypeName}CRUD crudProxy;
+    private static ${entitytypeName}NameService businessProxy;
 
     @BeforeAll
     public static void createAPIProxy() {
-        URI uri = URI.create("http://localhost:${tomeeHttpPort}/api");
-        apiProxy = RestClientBuilder
+        URI uri = URI.create("http://localhost:7081/api");
+        RestClientBuilder builder = RestClientBuilder
                 .newBuilder()
                 .baseUri(uri)
-                .register(JacksonJaxbJsonProvider.class)
-                .build(${entitytypeName}CRUD .class);
+                .register(JacksonJaxbJsonProvider.class);
+
+        crudProxy = builder.build(${entitytypeName}CRUD.class);
+        businessProxy = builder.build(${entitytypeName}NameService.class);
     }
 
     @Test
     public void run() {
         // read all instances
-        List<${entitytypeName}Composite> initialInstances = apiProxy.readAll${entitytypeName}Composites();
+        List<${entitytypeName}Composite> initialInstances = crudProxy.readAll${entitytypeName}Composites();
 
         assertNotNull(initialInstances,"instances list can be read");
 
         String name1 = "composite1";
         String name2 = "composite2";
+        String name3 = "composite3";
         String name11 = "part1";
         String name21 = "part2";
+        // this is an extra name for a third composite
+        String name33 = "part3";
 
         ${entitytypeName}Composite instance1 = new ${entitytypeName}Composite();
         instance1.setName(name1);
         ${entitytypeName}Composite instance2 = new ${entitytypeName}Composite();
         instance2.setName(name2);
+        // a third instance that will get the same name parts as instance2
+        ${entitytypeName}Composite instance3 = new ${entitytypeName}Composite();
+        instance3.setName(name3);
 
         ${entitytypeName}Part part1 = new ${entitytypeName}Part();
         part1.setName(name11);
         ${entitytypeName}Part part2 = new ${entitytypeName}Part();
         part2.setName(name21);
+        ${entitytypeName}Part part3 = new ${entitytypeName}Part();
+        part3.setName(name33);
 
         instance1.getParts().add(part1);
         instance2.getParts().add(part2);
-
+        instance3.getParts().add(part1);
+        instance3.getParts().add(part2);
+        instance3.getParts().add(part3);
 
         /* CREATE + READ */
         // create two instances
-        instance1 = apiProxy.create${entitytypeName}Composite(instance1);
-        instance2 = apiProxy.create${entitytypeName}Composite(instance2);
+        instance1 = crudProxy.create${entitytypeName}Composite(instance1);
+        instance2 = crudProxy.create${entitytypeName}Composite(instance2);
+        instance3 = crudProxy.create${entitytypeName}Composite(instance3);
 
-        assertEquals(2,apiProxy.readAll${entitytypeName}Composites().size()-initialInstances.size(),"instances list is appended on create");
+        assertEquals(3, crudProxy.readAll${entitytypeName}Composites().size()-initialInstances.size(),"instances list is appended on create");
 
         // read the instances and check whether they are equivalent
-        ${entitytypeName}Composite testInstance = apiProxy.read${entitytypeName}Composite(instance1.getId());
+        ${entitytypeName}Composite testInstance = crudProxy.read${entitytypeName}Composite(instance1.getId());
 
         assertNotNull(testInstance,"new instance can be read");
         assertEquals(instance1.getName(),testInstance.getName(),"new instance name is correct");
@@ -75,16 +92,32 @@ public class Test${entitytypeName}CRUD {
         // change the local name
         instance1.setName(instance1.getName() + " " + instance1.getName());
         // update the instance on the server-side
-        apiProxy.update${entitytypeName}Composite(instance1.getId(),instance1);
+        crudProxy.update${entitytypeName}Composite(instance1.getId(),instance1);
 
         // read out the instance and compare the names
-        testInstance = apiProxy.read${entitytypeName}Composite(instance1.getId());
+        testInstance = crudProxy.read${entitytypeName}Composite(instance1.getId());
         assertEquals(instance1.getName(), testInstance.getName(),"instance name is updated correctly");
 
+        /* BUSINESS METHOD: READ ALL NAMES */
+        Set<String> alllocalnames = new HashSet<>();
+        alllocalnames.add(instance1.getName());
+        alllocalnames.add(instance2.getName());
+        alllocalnames.add(instance3.getName());
+        alllocalnames.add(part1.getName());
+        alllocalnames.add(part2.getName());
+        alllocalnames.add(part3.getName());
+
+        List<String> allReceivedInstanceNames = businessProxy.readUnique${entitytypeName}Names();
+        // compare the length of the set
+        assertEquals(allReceivedInstanceNames.size(),alllocalnames.size(),"local and remote name sets have same size");
+        // then remove the local names from the remote ones to see whether they match
+        allReceivedInstanceNames.removeAll(alllocalnames);
+        assertEquals(0,allReceivedInstanceNames.size(),"local and remote name sets contain the same elements");
+
         /* DELETE */
-        assertTrue(apiProxy.delete${entitytypeName}Composite(instance1.getId()),"instance can be deleted");
-        assertNull(apiProxy.read${entitytypeName}Composite(instance1.getId()),"deleted instance does not exist anymore");
-        assertEquals(initialInstances.size()+1,apiProxy.readAll${entitytypeName}Composites().size(),"instance list is reduced on delete");
+        assertTrue(crudProxy.delete${entitytypeName}Composite(instance1.getId()),"instance can be deleted");
+        assertNull(crudProxy.read${entitytypeName}Composite(instance1.getId()),"deleted instance does not exist anymore");
+        assertEquals(initialInstances.size()+2, crudProxy.readAll${entitytypeName}Composites().size(),"instance list is reduced on delete");
     }
 
 }
