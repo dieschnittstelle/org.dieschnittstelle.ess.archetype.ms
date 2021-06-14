@@ -4,6 +4,12 @@
         name="ess-mip-quickstart">
 
     <requiredProperties>
+        <requiredProperty key="groupId">
+            <defaultValue>org.dieschnittstelle.ess</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="artifactId">
+            <defaultValue>mydata-quickstart-project</defaultValue>
+        </requiredProperty>
         <requiredProperty key="entitytypeName">
             <defaultValue>MyDataItem</defaultValue>
         </requiredProperty>
