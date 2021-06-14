@@ -5,6 +5,6 @@ docker build -t ${groupId}/${artifactId}  .
 docker stop ${artifactId}
 docker rm ${artifactId}
 
-docker run -itd -p 7071:7081 --name ${artifactId} ${groupId}/${artifactId}
+docker run -itd -p ${exposedContainerisedTomeeHttpPort}:${tomeeHttpPort} --name ${artifactId} ${groupId}/${artifactId}
 
 

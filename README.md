@@ -1,7 +1,7 @@
 # org.dieschnittstelle.ess.archetype.ms
 
 ## Build the archetype project
-from command line or in IDE run inside the project directory: 
+run inside the project directory: 
 
 mvn clean install
 

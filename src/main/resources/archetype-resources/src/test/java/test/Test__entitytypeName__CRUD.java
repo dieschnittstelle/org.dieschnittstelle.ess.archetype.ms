@@ -28,7 +28,7 @@ public class Test${entitytypeName}CRUD {
 
     @BeforeAll
     public static void createAPIProxy() {
-        URI uri = URI.create("http://localhost:7081/api");
+        URI uri = URI.create("http://localhost:${tomeeHttpPort}/api");
         RestClientBuilder builder = RestClientBuilder
                 .newBuilder()
                 .baseUri(uri)
@@ -44,6 +44,9 @@ public class Test${entitytypeName}CRUD {
         List<${entitytypeName}Composite> initialInstances = crudProxy.readAll${entitytypeName}Composites();
 
         assertNotNull(initialInstances,"instances list can be read");
+
+        // we determine all names of instances in order to have a baseline for the tests
+        List<String> allInitialNames = businessProxy.readUnique${entitytypeName}Names();
 
         String name1 = "composite1";
         String name2 = "composite2";
@@ -107,7 +110,13 @@ public class Test${entitytypeName}CRUD {
         alllocalnames.add(part2.getName());
         alllocalnames.add(part3.getName());
 
+        // remove the local names from the initial names - note that this requires for the name sets to be distinct!
+        allInitialNames.removeAll(alllocalnames);
+
         List<String> allReceivedInstanceNames = businessProxy.readUnique${entitytypeName}Names();
+        // and remove the initial names from the received names
+        allReceivedInstanceNames.removeAll(allInitialNames);
+
         // compare the length of the set
         assertEquals(allReceivedInstanceNames.size(),alllocalnames.size(),"local and remote name sets have same size");
         // then remove the local names from the remote ones to see whether they match

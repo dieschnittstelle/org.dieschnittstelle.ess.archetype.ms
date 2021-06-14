@@ -1,7 +1,7 @@
 # Base Java image
 FROM williamyeh/java8
 
-EXPOSE 7081
+EXPOSE ${tomeeHttpPort}
 
 COPY /${artifactId}-1.0-SNAPSHOT-exec.jar /local/${artifactId}-1.0-SNAPSHOT-exec.jar
 
