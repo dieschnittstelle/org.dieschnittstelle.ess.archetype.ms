@@ -20,10 +20,10 @@
         that if multiple instances of tomee are run,
         also the admin ports would need to be modified -->
         <requiredProperty key="tomeeHttpPort">
-            <defaultValue>7081</defaultValue>
+            <defaultValue>7075</defaultValue>
         </requiredProperty>
         <requiredProperty key="exposedContainerisedTomeeHttpPort">
-            <defaultValue>7071</defaultValue>
+            <defaultValue>7076</defaultValue>
         </requiredProperty>
     </requiredProperties>
 
