@@ -19,6 +19,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
 @Transactional
 public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameService {
 
+    /* wie kann ein privates Instanzattribut von aussen durch ein Framework gesetzt werden? */
     @Inject
     private ${entitytypeName}CRUD crudBean;
 

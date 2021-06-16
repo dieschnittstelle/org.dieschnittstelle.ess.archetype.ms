@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/* Polymorphie ansprechen */
 @Entity
 public class ${entitytypeName}Composite {
 
