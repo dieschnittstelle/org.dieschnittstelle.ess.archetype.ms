@@ -28,6 +28,7 @@ public class Test${entitytypeName}CRUD {
 
     @BeforeAll
     public static void createAPIProxy() {
+        /* siehe JRS client und WSV */
         URI uri = URI.create("http://localhost:${tomeeHttpPort}/api");
         RestClientBuilder builder = RestClientBuilder
                 .newBuilder()

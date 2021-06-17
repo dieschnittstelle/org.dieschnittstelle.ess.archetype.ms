@@ -15,6 +15,7 @@ public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
 
     @Inject
     @${persistenceUnitName}EntityManagerProvider.${persistenceUnitName}DataAccessor
+    /* siehe auch big picture zu JPA */
     private EntityManager em;
 
     public List<${entitytypeName}Composite> readAll${entitytypeName}Composites() {
