@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
  * enthalten ist, bereit gestellt wird. Die URLs fuer die Zugriffe auf die einzelnen Ressourcen / "Services"
  * dieser Application ergeben sich aus der URL der Webanwendung, dem hier angegeben @ApplicationPath,
  * der @Path-URL der Ressourcenklasse bzw. des Interfaces sowie evtl. einer zusaetzlichen @Path Annotation
- * auf der zuzugreifenden Methode der Ressource (siehe JRS:52).
+ * auf der zuzugreifenden Methode der Ressource (siehe JRS:40+2:"WebAPI mit JAX-RS und Resteasy").
  */
 @ApplicationPath("/api")
 public class WebAPIRoot extends Application {

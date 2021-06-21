@@ -46,7 +46,7 @@ public class ${persistenceUnitName}EntityManagerProvider {
     /*
      * Die @PersistenceContext Annotation ist eine JPA-spezifische Dependency Injection Annotation,
      * auf deren Grundlage eine EntityManager Instanz fuer die angegebene Persistence Unit bereit
-     * gestellt wird (siehe JPA:70 fuer das 'Big Picture' von CDI+JPA sowie die Konfigurationsdatei
+     * gestellt wird (siehe JPA:54+1 fuer das "Big Picture" von CDI+JPA sowie die Konfigurationsdatei
      * persistence.xml im resouces/META-INF Verzeichnis fuer die Deklaration der Persistence Unit).
      */
     @PersistenceContext(unitName = "${persistenceUnitName}_PU")
