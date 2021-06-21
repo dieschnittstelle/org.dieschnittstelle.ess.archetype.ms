@@ -4,7 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
+/*
+ * Klasse, deren Instanzen als Bestandteile von ${entitytypeName}Composite verwendet werden
+ *
+ * ? weshalb sind in ${entitytypeName}CRUDImpl  fuer ggf. in einer ${entitytypeName}Composite Instanz enthaltenen
+ * Instanzen dieser Klasse keine persist() Aufrufe auf dem verwendeten Entity Manager erforderlich?
+ */
 @Entity
 public class ${entitytypeName}Part {
 

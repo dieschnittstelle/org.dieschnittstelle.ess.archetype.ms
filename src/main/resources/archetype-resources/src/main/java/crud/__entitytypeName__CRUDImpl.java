@@ -9,19 +9,33 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 import javax.inject.Inject;
 
+/*
+ * Typische Implementierung eines CRUD Interfaces als zustandslose transaktionale
+ * CDI Bean
+ *
+ * ? welche Voraussetzung muss gegeben sein, damit diese Klasse als @ApplicationScoped deklariert werden kann? (siehe MIP:42)
+ */
 @ApplicationScoped
 @Transactional
 public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
 
+    /*
+     * Injektion des durch das Producer-Attribut der Klasse ${persistenceUnitName}EntityManagerProvider
+     * bereit gestellten Entity Managers
+     */
     @Inject
     @${persistenceUnitName}EntityManagerProvider.${persistenceUnitName}DataAccessor
-    /* siehe auch big picture zu JPA */
     private EntityManager em;
 
     public List<${entitytypeName}Composite> readAll${entitytypeName}Composites() {
 
         System.out.println("----- readAll${entitytypeName}Composites()");
 
+        /*
+         * einfaches Beispiel fuer die Verwendung der JPA Query Language
+         * ? ist die Kenntnis der genauen Datenbankstruktur fuer die
+         * Formulierung von JPQL Abfragen erforderlich? (siehe JPA:31)
+         */
         return (List)em
                 .createQuery("SELECT e FROM ${entitytypeName}Composite e")
                 .getResultList();
@@ -35,6 +49,10 @@ public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
 
     public ${entitytypeName}Composite create${entitytypeName}Composite(${entitytypeName}Composite instance) {
         System.out.println("----- create${entitytypeName}Composite(): " + instance);
+        /*
+         * Welche Voraussetzung muss fuer eine erfolgreiche Ausfuehrung der persist() Methode
+         * für eine gegebene Instanz von ${entitytypeName}Composite erfuellt sein? (siehe JPA:39)
+         */
         em.persist(instance);
         return instance;
     }

@@ -11,13 +11,25 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /*
- * see for this solution to obtain an entity manager for a given pu by a producer
- * and using a custom qualifier: https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/
+ * CDI Bean, die ein Producer-Attribut / Producer-Field fuer eine EntityManager
+ * Instanz bereitstellt, welche mit den Zugriff auf die mit der Persistence Unit
+ * "${persistenceUnitName}" assoziierten Datenbestaende ermoeglicht. Durch Verwendung des
+ * Qualifiers @${persistenceUnitName}DataAccessor können in einem all-in-one Deployment
+ * verschiedene EntityManager fuer verschiedene Persistence Units innerhalb eines gemeinsamen
+ * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:45-46,48).
+ *
+ * (Quellennachweis, nicht fuer ESS Ruecksprache: Siehe als Vorlgae fuer diese Bereitstellung eines EntityManagers fuer eine spezifische
+ * PersistenceUnit: https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/)
  */
 @ApplicationScoped
 public class ${persistenceUnitName}EntityManagerProvider {
 
+    /*
+     * Bei @${persistenceUnitName}DataAccessor handelt es sich um eine anwendungsspezifische
+     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (für Annotationen siehe BAS:44-53)
+     */
     @Qualifier
+    /* ? Wie nennt man die Annotationstypen @Retention und @Target? (siehe BAS:51-52) Weshalb? */
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.FIELD)
     public static @interface ${persistenceUnitName}DataAccessor {
@@ -25,7 +37,18 @@ public class ${persistenceUnitName}EntityManagerProvider {
     }
 
     @Produces
+    /*
+     * Hier wird die oben deklarierte Qualifier-Annotation verwendet, d.h. unter dem Namen
+     * "${persistenceUnitName}DataAccessor" kann der durch das Producer-Attribut bereit gestellt
+     * EntityManger von anderen CDI Komponenten angefordert werden.
+     */
     @${persistenceUnitName}DataAccessor
+    /*
+     * Die @PersistenceContext Annotation ist eine JPA-spezifische Dependency Injection Annotation,
+     * auf deren Grundlage eine EntityManager Instanz fuer die angegebene Persistence Unit bereit
+     * gestellt wird (siehe JPA:70 fuer das 'Big Picture' von CDI+JPA sowie die Konfigurationsdatei
+     * persistence.xml im resouces/META-INF Verzeichnis fuer die Deklaration der Persistence Unit).
+     */
     @PersistenceContext(unitName = "${persistenceUnitName}_PU")
     private EntityManager em;
 
