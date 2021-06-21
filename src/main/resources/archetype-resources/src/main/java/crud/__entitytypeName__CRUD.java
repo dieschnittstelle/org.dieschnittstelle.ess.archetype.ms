@@ -10,9 +10,9 @@ import ${groupId}.entities.${entitytypeName}Composite;
 /*
  * Beispiel fuer ein typisches CRUD Interface in Java, das nach dem REST Prinzip des
  * "Uniformen Interfaces" für den Zugriff ueber eine Web API mit JAX-RS Annotationen
- * versehen wird (siehe JRS:33).
+ * versehen wird (siehe JRS:27).
  * Grundlage fuer die Zuordnung von HTTP Methoden zu CRUD Operationen ist die Semantik
- * der HTTP Methoden entsprechend der HTTP Spezifikation (siehe JRS:30-31).
+ * der HTTP Methoden entsprechend der HTTP Spezifikation (siehe JRS:25-26).
  *
  * ? welchem Pattern entspricht die Deklaration eines Interfaces fuer Datenzugriffe,
  * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT)

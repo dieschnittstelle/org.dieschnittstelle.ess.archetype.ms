@@ -5,7 +5,7 @@
  wird durch die Angabe einer jta-data-source eine konkrete Datenbank bzw. deren Abstraktion
  als "Data Source" festgelegt, in welcher das Schema generiert werden soll. Auf diese
  Datenbank und das darin generierte Schema wird zur Laufzeit lesend und schreibend
- durch den EntityManager dieser Persistence Unit zugegriffen (siehe JPA:10 fuer die beiden
+ durch den EntityManager dieser Persistence Unit zugegriffen (siehe JPA:7ff fuer die beiden
  genannten wesentlichen Aspekte von Objekt Relational Mapping).
 
  Siehe die Datei webapp/WEB-INF/resources.xml fuer die Konfiguration der hier referenzierten Data Source

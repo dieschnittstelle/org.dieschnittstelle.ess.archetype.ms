@@ -32,7 +32,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Transaktion verwenden, d.h. schreibende Zugriffe auf die verwendete Datenbank werden bis zur Rueckgabe
  * der jeweils aufgerufenen Methode nur "vorgemerkt" und erst dann durch Zugriff auf die Datenbank
  * umgesetzt. Falls Fehler auftreten, werden etwaige bereits getaetigten Zugriffe rueckgaengig gemacht
- * (siehe JPA:60 sowie JPA:56-59 fuer Details).
+ * (siehe JPA:42ff).
 
  * Bei dieser Annotation handelt es sich um eine Interzeptor-Annotation (siehe MIP:66).
  */
@@ -42,7 +42,7 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
     /*
      * Die @Inject Annotation injiziert ein Objekt, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
-     * ein Proxy-Objekt (siehe WSV:21-22 sowie SUM:28-29).
+     * ein Proxy-Objekt (siehe WSV:41-42 sowie SUM).
      * Voraussetzung dafür, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
      * Ermittelbarkeit einer Implementierung (siehe MIP:63-65).
      *
