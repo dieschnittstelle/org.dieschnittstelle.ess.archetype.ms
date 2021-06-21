@@ -25,7 +25,8 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
  * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:41ff).
  *
- * ? welche weiteren Kontexte / Geltungsbereiche sind für CDI vorgesehen?
+ * ? welche weiteren Kontexte / Geltungsbereiche sind fuer CDI vorgesehen?
+ */
  */
 @ApplicationScoped
 /*
