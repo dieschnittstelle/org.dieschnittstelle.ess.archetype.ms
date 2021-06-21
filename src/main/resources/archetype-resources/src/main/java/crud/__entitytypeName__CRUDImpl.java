@@ -51,7 +51,7 @@ public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
         System.out.println("----- create${entitytypeName}Composite(): " + instance);
         /*
          * Welche Voraussetzung muss fuer eine erfolgreiche Ausfuehrung der persist() Methode
-         * für eine gegebene Instanz von ${entitytypeName}Composite erfuellt sein? (siehe JPA:39)
+         * fuer eine gegebene Instanz von ${entitytypeName}Composite erfuellt sein? (siehe JPA:39)
          */
         em.persist(instance);
         return instance;

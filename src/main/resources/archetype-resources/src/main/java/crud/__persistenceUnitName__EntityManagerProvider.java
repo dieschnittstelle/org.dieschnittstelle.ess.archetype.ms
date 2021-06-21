@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  * CDI Bean, die ein Producer-Attribut / Producer-Field fuer eine EntityManager
  * Instanz bereitstellt, welche mit den Zugriff auf die mit der Persistence Unit
  * "${persistenceUnitName}" assoziierten Datenbestaende ermoeglicht. Durch Verwendung des
- * Qualifiers @${persistenceUnitName}DataAccessor können in einem all-in-one Deployment
+ * Qualifiers @${persistenceUnitName}DataAccessor koennen in einem all-in-one Deployment
  * verschiedene EntityManager fuer verschiedene Persistence Units innerhalb eines gemeinsamen
  * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:45-46,48).
  *
@@ -26,7 +26,7 @@ public class ${persistenceUnitName}EntityManagerProvider {
 
     /*
      * Bei @${persistenceUnitName}DataAccessor handelt es sich um eine anwendungsspezifische
-     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (für Annotationen siehe BAS:44-53)
+     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (fuer Annotationen siehe BAS:44-53)
      */
     @Qualifier
     /* ? Wie nennt man die Annotationstypen @Retention und @Target? (siehe BAS:51-52) Weshalb? */

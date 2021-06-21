@@ -43,12 +43,12 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
      * Die @Inject Annotation injiziert ein Objekt, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
      * ein Proxy-Objekt (siehe WSV:41-42 sowie SUM).
-     * Voraussetzung dafür, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
+     * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
      * Ermittelbarkeit einer Implementierung (siehe MIP:63-65).
      *
      * ? wie kann ein privates Instanzattribut, fuer das keine Setter-Methode existiert,
      * von aussen durch ein Framework wie den CDI Container gesetzt werden?
-     * (siehe dafür die Aufzeichnung der Demo zu BAS "Direktzugriff auf Attribute", ca. 9min).
+     * (siehe dafuer die Aufzeichnung der Demo zu BAS "Direktzugriff auf Attribute", ca. 9min).
      *
      * ? an welcher anderen Stelle dieser aus Client- und Server-Seite bestehenden Anwendung wird
      * ein Proxy Objekt fuer ${entitytypeName}CRUD verwendet?
