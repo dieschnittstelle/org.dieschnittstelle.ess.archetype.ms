@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
- * Beispiel fuer eine Klasse, deren Instanzen Kompositionen ggf. mehrerer
+ * Beispiel fuer eine Klasse, deren Instanzen als Composites ggf. mehrere
  * Instanzen von ${entitytypeName}Part enthalten koennen. Instanzen dieser Klasse
- * werden in dieser Anwendung in zwei Verwendungsformen auf:
+ * treten in dieser Anwendung in zwei Verwendungsformen auf:
  * - als POJOs (bzw. Data Transfer Objekte) auf Seiten der Client-Anwendung Test${entitytypeName}CRUD und
  * an der Client-Server Schnittstelle der durch die server-seitige Anwendung bereit gestellten Web API
  * - als JPA Entities im Kontext der Verwendung des JPA Entity Managers in ${entitytypeName}CRUDImpl
@@ -22,7 +22,7 @@ import java.util.Set;
 public class ${entitytypeName}Composite {
 
     /*
-     * Durch @Id wird fuer die JPA Implementierung zum Ausdruck gebracht, dass
+     * Durch @Id wird fuer die JPA Implementierung zum Ausdruck gebracht, dass das
      * annotierte Attribut der Primary Key Spalte der Tabelle entspricht, in der
      * Instanzen von ${entitytypeName}Composite persistiert werden (siehe JPA:25).
      */

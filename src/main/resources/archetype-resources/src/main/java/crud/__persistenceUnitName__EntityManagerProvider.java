@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 
 /*
  * CDI Bean, die ein Producer-Attribut / Producer-Field fuer eine EntityManager
- * Instanz bereitstellt, welche mit den Zugriff auf die mit der Persistence Unit
+ * Instanz bereitstellt, welche den Zugriff auf die mit der Persistence Unit
  * "${persistenceUnitName}" assoziierten Datenbestaende ermoeglicht. Durch Verwendung des
  * Qualifiers @${persistenceUnitName}DataAccessor koennen in einem all-in-one Deployment
  * verschiedene EntityManager fuer verschiedene Persistence Units innerhalb eines gemeinsamen
@@ -38,8 +38,8 @@ public class ${persistenceUnitName}EntityManagerProvider {
 
     @Produces
     /*
-     * Hier wird die oben deklarierte Qualifier-Annotation verwendet, d.h. unter dem Namen
-     * "${persistenceUnitName}DataAccessor" kann der durch das Producer-Attribut bereit gestellt
+     * Hier wird die oben deklarierte Qualifier-Annotation verwendet, d.h. unter Angabe von
+     * @${persistenceUnitName}DataAccessor kann der durch das Producer-Attribut bereit gestellt
      * EntityManger von anderen CDI Komponenten angefordert werden.
      */
     @${persistenceUnitName}DataAccessor

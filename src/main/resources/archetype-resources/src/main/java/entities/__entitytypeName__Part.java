@@ -7,7 +7,7 @@ import javax.persistence.Id;
 /*
  * Klasse, deren Instanzen als Bestandteile von ${entitytypeName}Composite verwendet werden
  *
- * ? weshalb sind in ${entitytypeName}CRUDImpl  fuer ggf. in einer ${entitytypeName}Composite Instanz enthaltenen
+ * ? weshalb sind in ${entitytypeName}CRUDImpl  fuer ggf. in einer ${entitytypeName}Composite Instanz enthaltene
  * Instanzen dieser Klasse keine persist() Aufrufe auf dem verwendeten Entity Manager erforderlich?
  */
 @Entity

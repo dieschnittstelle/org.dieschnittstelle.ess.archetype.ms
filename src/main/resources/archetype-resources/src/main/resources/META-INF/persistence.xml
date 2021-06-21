@@ -3,7 +3,7 @@
  Diese Konfigurationsdatei einer Persistence Unit gibt an, fuer welche Menge von Entity-Klassen
  der Anwendung durch die JPA Implementierung ein Datenbankschema generiert werden soll. Ausserdem
  wird durch die Angabe einer jta-data-source eine konkrete Datenbank bzw. deren Abstraktion
- als "Data Source" festgelegt, in welcher das Schema generiert werden soll. Auf diese
+ als "Data Source" festgelegt, in welcher das Schema erstellt werden soll. Auf diese
  Datenbank und das darin generierte Schema wird zur Laufzeit lesend und schreibend
  durch den EntityManager dieser Persistence Unit zugegriffen (siehe JPA:7ff fuer die beiden
  genannten wesentlichen Aspekte von Objekt Relational Mapping).

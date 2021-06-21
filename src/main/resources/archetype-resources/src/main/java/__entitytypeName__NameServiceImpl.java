@@ -23,7 +23,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Die @ApplicationScoped Annotation gibt an, dass eine Instanz dieser Klasse mit dem globalen Kontext der
  * Anwendung assoziiert ist, die die Klasse enthaelt, d.h. es wird durch den CDI Container nur eine
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
- * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:59/60)
+ * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:59/60).
  */
 @ApplicationScoped
 /*
@@ -40,7 +40,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
 public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameService {
 
     /*
-     * Die @Inject Annotation injiziert ein Objekt, ueber das der Zugriff auf eine Implementierung
+     * Die @Inject Annotation bewirkt die Injektion eines Objekts, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
      * ein Proxy-Objekt (siehe WSV:41-42 sowie SUM).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige

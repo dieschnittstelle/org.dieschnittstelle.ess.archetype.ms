@@ -33,7 +33,7 @@ public interface ${entitytypeName}CRUD {
      * einzelnes Element dieser Menge, das durch einen Identifikator ("id") identifiziert wird.
      *
      * Das dynamische URL-Segment {id}, das in @Path verwendet wird, wird durch @PathParam an
-     * das id-Argument der Methode gebunden, d.h. server-seitig wird durch die JAx-RS Implementierung
+     * das id-Argument der Methode gebunden, d.h. server-seitig wird durch die JAX-RS Implementierung
      * der jeweilige String-Wert dieses Segments in einen long-Wert umgewandelt und dann die Methode aufgerufen,
      *
      * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:16)
@@ -43,7 +43,7 @@ public interface ${entitytypeName}CRUD {
     public ${entitytypeName}Composite read${entitytypeName}Composite(@PathParam("id") long id);
 
     /*
-     * ? inwiefern ist die Verwendung von @Post fuer create() und @PUT fuer update() durch die Semantik der HTTP Methoden vorgegeben?
+     * ? inwiefern ist die Verwendung von @POST fuer create() und @PUT fuer update() durch die Semantik der HTTP Methoden vorgegeben?
      */
     @POST
     public ${entitytypeName}Composite create${entitytypeName}Composite(${entitytypeName}Composite instance);

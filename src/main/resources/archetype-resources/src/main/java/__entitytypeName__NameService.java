@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import ${groupId}.entities.${entitytypeName}Composite;
 
 /*
- * Interface fuer eine "Geschaeftslogik"-Operation, die die Namen der existierenden ${entitytypeName}
+ * Interface fuer eine "Geschaeftslogik"-Komponente, die die Namen der existierenden ${entitytypeName}
  * Instanzen auf Basis elementarer CRUD Operationen ermittelt
  */
 
@@ -27,7 +27,7 @@ public interface ${entitytypeName}NameService {
 
     /*
      * Die @GET Annotation gibt an, dass fuer den Zugriff auf die annotierte Operation
-     * ein HTTP GET Request verwendet wird
+     * ein HTTP GET Request verwendet werden soll
      */
     @GET
     public List<String> readUnique${entitytypeName}Names();
