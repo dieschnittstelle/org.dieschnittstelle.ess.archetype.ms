@@ -24,6 +24,8 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Anwendung assoziiert ist, die die Klasse enthaelt, d.h. es wird durch den CDI Container nur eine
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
  * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:41ff).
+ *
+ * ? welche weiteren Kontexte / Geltungsbereiche sind für CDI vorgesehen?
  */
 @ApplicationScoped
 /*
@@ -42,7 +44,7 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
     /*
      * Die @Inject Annotation bewirkt die Injektion eines Objekts, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
-     * ein Proxy-Objekt (siehe WSV:41-42 sowie SUM).
+     * ein Proxy-Objekt (siehe WSV:41-42 sowie SUM. Für Dependency Injection allgemein siehe JRS:48).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
      * Ermittelbarkeit einer Implementierung (siehe MIP:44-46).
      *
