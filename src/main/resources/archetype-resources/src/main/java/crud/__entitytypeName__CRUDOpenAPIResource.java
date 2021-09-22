@@ -19,6 +19,8 @@ import javax.ws.rs.core.MediaType;
 @ApplicationScoped
 @Transactional
 @Path("/opi/${entitytypeName}s")
+@Produces({MediaType.APPLICATION_JSON})
+@Consumes({MediaType.APPLICATION_JSON})
 public class ${entitytypeName}CRUDOpenAPIResource {
 
     /*
