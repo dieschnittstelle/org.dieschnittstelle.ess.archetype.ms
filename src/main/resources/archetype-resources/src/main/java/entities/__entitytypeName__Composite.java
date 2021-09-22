@@ -64,7 +64,6 @@ public class ${entitytypeName}Composite {
      * Explizite Angabe, dass bei Generierung des Objektschemas das durch die assoziierte
      * Klasse deklarierte Schema verwendet werden soll
      */
-    @Schema(implementation = ${entitytypeName}Part.class)
     private Set<${entitytypeName}Part> parts = new HashSet();
 
     public ${entitytypeName}Composite() {

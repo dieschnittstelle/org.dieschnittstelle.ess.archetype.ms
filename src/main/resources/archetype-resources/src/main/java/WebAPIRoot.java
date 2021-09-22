@@ -5,6 +5,10 @@ import javax.ws.rs.core.Application;
 
 import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * JAX-RS Application. "Wurzel" der WebAPI, die durch die Webanwendung, in der diese Klasse
  * enthalten ist, bereit gestellt wird. Die URLs fuer die Zugriffe auf die einzelnen Ressourcen / "Services"
@@ -19,6 +23,16 @@ public class WebAPIRoot extends Application {
 
     public WebAPIRoot() {
         logger.info("<constructor>");
+    }
+
+    /*
+     * Um eine client-seitig verwendbare OpenAPI Beschreibung zu erhalten, fuer die funktionierender
+     * Javacode generiert werden kann, muessen derzeit die Klassen, die die WebAPI implementieren,
+     * explizit aufgelistet werden.
+     */
+    @Override
+    public Set<Class<?>> getClasses() {
+        return new HashSet<>(Arrays.asList(${entitytypeName}NameServiceImpl.class, ${groupId}.crud.${entitytypeName}CRUDImpl.class, ${groupId}.crud.${entitytypeName}CRUDOpenAPIResource.class));
     }
 
 }
