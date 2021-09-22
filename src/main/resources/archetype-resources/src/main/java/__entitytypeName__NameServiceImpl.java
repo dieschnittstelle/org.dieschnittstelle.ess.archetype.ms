@@ -27,7 +27,6 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  *
  * ? welche weiteren Kontexte / Geltungsbereiche sind fuer CDI vorgesehen?
  */
- */
 @ApplicationScoped
 /*
  * Die @Transactional Annotation legt fest, dass alle Datenbankzugriffe, die im Callstack der Methoden

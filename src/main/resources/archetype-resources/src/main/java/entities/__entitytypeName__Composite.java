@@ -5,6 +5,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 /*
  * Beispiel fuer eine Klasse, deren Instanzen als Composites ggf. mehrere
  * Instanzen von ${entitytypeName}Part enthalten koennen. Instanzen dieser Klasse
@@ -19,6 +21,12 @@ import java.util.Set;
  *
  */
 @Entity
+/*
+ * Angabe des Namens des Objektschemas, unter dem der dieser Klasse entsprechende Datentyp in der OpenAPI Beschreibung der
+ * Web API identifiziert wird (derzeit (September 2021) besteht jedoch die Problematik, dass JAX-RS Ressourcen, die eine
+ * Trennung von Interface und Implementierung vorsehen, bei der OpenAPI Generierung durch die verwendete TomEE Version ignoriert werden)
+ */
+@Schema(name = "${entitytypeName}Composite")
 public class ${entitytypeName}Composite {
 
     /*
@@ -52,6 +60,11 @@ public class ${entitytypeName}Composite {
      * sollen.
      */
     @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+    /*
+     * Explizite Angabe, dass bei Generierung des Objektschemas das durch die assoziierte
+     * Klasse deklarierte Schema verwendet werden soll
+     */
+    @Schema(implementation = ${entitytypeName}Part.class)
     private Set<${entitytypeName}Part> parts = new HashSet();
 
     public ${entitytypeName}Composite() {

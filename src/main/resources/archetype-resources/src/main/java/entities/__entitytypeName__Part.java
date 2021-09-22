@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 /*
  * Klasse, deren Instanzen als Bestandteile von ${entitytypeName}Composite verwendet werden
  *
@@ -11,6 +13,7 @@ import javax.persistence.Id;
  * Instanzen dieser Klasse keine persist() Aufrufe auf dem verwendeten Entity Manager erforderlich?
  */
 @Entity
+@Schema(name = "${entitytypeName}Part")
 public class ${entitytypeName}Part {
 
     @Id

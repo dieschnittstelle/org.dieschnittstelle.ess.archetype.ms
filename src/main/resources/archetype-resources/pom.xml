@@ -10,7 +10,8 @@
     <name>${artifactId}</name>
 
     <properties>
-        <tomee.version>8.0.0-M3</tomee.version>
+        <tomee.version>8.0.8</tomee.version>
+        <microprofile.version>3.3</microprofile.version>
         <junit.version>5.7.0</junit.version>
     </properties>
 
@@ -79,7 +80,7 @@
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>3.3</version>
+            <version>${microprofile.version}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>

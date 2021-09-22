@@ -10,6 +10,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="org.dieschnittstelle.ess.archetype.ms" />
+        <module name="ess-mip-quickstart" />
       </profile>
     </annotationProcessing>
   </component>
