@@ -23,7 +23,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Die @ApplicationScoped Annotation gibt an, dass eine Instanz dieser Klasse mit dem globalen Kontext der
  * Anwendung assoziiert ist, die die Klasse enthaelt, d.h. es wird durch den CDI Container nur eine
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
- * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:41ff).
+ * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:59ff).
  *
  * ? welche weiteren Kontexte / Geltungsbereiche sind fuer CDI vorgesehen?
  */
@@ -34,9 +34,9 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Transaktion verwenden, d.h. schreibende Zugriffe auf die verwendete Datenbank werden bis zur Rueckgabe
  * der jeweils aufgerufenen Methode nur "vorgemerkt" und erst dann durch Zugriff auf die Datenbank
  * umgesetzt. Falls Fehler auftreten, werden etwaige bereits getaetigten Zugriffe rueckgaengig gemacht
- * (siehe JPA:43ff).
+ * (siehe JPA:63ff).
 
- * Bei dieser Annotation handelt es sich um eine Interzeptor-Annotation (siehe MIP:47).
+ * Bei dieser Annotation handelt es sich um eine Interzeptor-Annotation (siehe MIP:68).
  */
 @Transactional
 public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameService {
@@ -44,9 +44,9 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
     /*
      * Die @Inject Annotation bewirkt die Injektion eines Objekts, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
-     * ein Proxy-Objekt (siehe WSV:41-42 sowie SUM. Für Dependency Injection allgemein siehe JRS:48).
+     * ein Proxy-Objekt (siehe WSV:19-20 sowie SUM. Für Dependency Injection allgemein siehe JRS:63).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
-     * Ermittelbarkeit einer Implementierung (siehe MIP:44-46).
+     * Ermittelbarkeit einer Implementierung (siehe MIP:64-67).
      *
      * ? wie kann ein privates Instanzattribut, fuer das keine Setter-Methode existiert,
      * von aussen durch ein Framework wie den CDI Container gesetzt werden?

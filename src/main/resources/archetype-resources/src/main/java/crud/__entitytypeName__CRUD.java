@@ -10,12 +10,12 @@ import ${groupId}.entities.${entitytypeName}Composite;
 /*
  * Beispiel fuer ein typisches CRUD Interface in Java, das nach dem REST Prinzip des
  * "Uniformen Interfaces" fuer den Zugriff ueber eine Web API mit JAX-RS Annotationen
- * versehen wird (siehe JRS:27).
+ * versehen wird (siehe JRS:33+56).
  * Grundlage fuer die Zuordnung von HTTP Methoden zu CRUD Operationen ist die Semantik
- * der HTTP Methoden entsprechend der HTTP Spezifikation (siehe JRS:25-26).
+ * der HTTP Methoden entsprechend der HTTP Spezifikation (siehe JRS:30-31).
  *
  * ? welchem Pattern entspricht die Deklaration eines Interfaces fuer Datenzugriffe,
- * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:8ff)
+ * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:10ff)
  */
 @Path("/${entitytypeName}s")
 @Produces({MediaType.APPLICATION_JSON})
@@ -36,7 +36,7 @@ public interface ${entitytypeName}CRUD {
      * das id-Argument der Methode gebunden, d.h. server-seitig wird durch die JAX-RS Implementierung
      * der jeweilige String-Wert dieses Segments in einen long-Wert umgewandelt und dann die Methode aufgerufen,
      *
-     * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:16)
+     * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:17-18)
      */
     @GET
     @Path("/{id}")

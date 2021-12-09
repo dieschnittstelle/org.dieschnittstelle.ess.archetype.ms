@@ -17,7 +17,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * (siehe SUM:12-13)
  *
  * ? ist die @Entity Annotation auf Ebene der Client-Anwendung relevant?
- * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:48)
+ * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:54)
  *
  */
 @Entity
@@ -32,7 +32,7 @@ public class ${entitytypeName}Composite {
     /*
      * Durch @Id wird fuer die JPA Implementierung zum Ausdruck gebracht, dass das
      * annotierte Attribut der Primary Key Spalte der Tabelle entspricht, in der
-     * Instanzen von ${entitytypeName}Composite persistiert werden (siehe JPA:25).
+     * Instanzen von ${entitytypeName}Composite persistiert werden (siehe JPA:41).
      */
     @Id
     /*
@@ -50,7 +50,7 @@ public class ${entitytypeName}Composite {
     /*
      * Mittels des cascade Parameters wird angegeben, wie Instanzen von ${entitytypeName}Part
      * im Hinblick auf die Kaskadierung der auf ${entitytypeName}Composite durchgefuerten CRUD
-     * Operationen behandelt werden sollen (siehe JPA:39ff).
+     * Operationen behandelt werden sollen (siehe JPA:55ff).
      *
      * Koennte man CascadeType.ALL auch fuer eine @ManyToMany Assoziation sinnvoll angeben?
      */

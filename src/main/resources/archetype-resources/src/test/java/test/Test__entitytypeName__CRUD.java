@@ -31,7 +31,7 @@ public class Test${entitytypeName}CRUD {
         /*
          * Hier wird mit den Mitteln der Rest Client Implementierung aus Eclipse Microprofile
          * fuer die beiden angegebenen Interfaces ${entitytypeName}CRUD und
-         * ${entitytypeName}NameService jeweils ein Proxy Objekt generiert (siehe WSV:41-42).
+         * ${entitytypeName}NameService jeweils ein Proxy Objekt generiert (siehe WSV:19-2ß).
          *
          * ? wie und wo kann dieser Mechanismus im Rahmen von Dependency Injection
          * im Hintergrund genutzt werden? (siehe MSD:26)
