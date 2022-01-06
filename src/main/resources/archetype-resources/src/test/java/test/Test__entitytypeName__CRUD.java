@@ -34,7 +34,7 @@ public class Test${entitytypeName}CRUD {
          * ${entitytypeName}NameService jeweils ein Proxy Objekt generiert (siehe WSV:19-2ß).
          *
          * ? wie und wo kann dieser Mechanismus im Rahmen von Dependency Injection
-         * im Hintergrund genutzt werden? (siehe MSD:26)
+         * im Hintergrund genutzt werden? (siehe MSD:39)
          */
         URI uri = URI.create("http://localhost:${tomeeHttpPort}/api");
         RestClientBuilder builder = RestClientBuilder

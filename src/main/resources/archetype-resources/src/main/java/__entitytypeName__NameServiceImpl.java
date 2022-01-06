@@ -44,7 +44,7 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
     /*
      * Die @Inject Annotation bewirkt die Injektion eines Objekts, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
-     * ein Proxy-Objekt (siehe WSV:19-20 sowie SUM. Für Dependency Injection allgemein siehe JRS:63).
+     * ein Proxy-Objekt (siehe WSV:19-20 sowie SUM. Fuer Dependency Injection allgemein siehe JRS:63).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
      * Ermittelbarkeit einer Implementierung (siehe MIP:64-67).
      *

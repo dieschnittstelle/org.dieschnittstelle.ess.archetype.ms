@@ -14,7 +14,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * - als POJOs (bzw. Data Transfer Objekte) auf Seiten der Client-Anwendung Test${entitytypeName}CRUD und
  * an der Client-Server Schnittstelle der durch die server-seitige Anwendung bereit gestellten Web API
  * - als JPA Entities im Kontext der Verwendung des JPA Entity Managers in ${entitytypeName}CRUDImpl
- * (siehe SUM:12-13)
+ * (siehe SUM:19-20)
  *
  * ? ist die @Entity Annotation auf Ebene der Client-Anwendung relevant?
  * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:54)
