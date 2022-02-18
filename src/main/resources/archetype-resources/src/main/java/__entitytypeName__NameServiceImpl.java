@@ -36,7 +36,13 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * umgesetzt. Falls Fehler auftreten, werden etwaige bereits getaetigten Zugriffe rueckgaengig gemacht
  * (siehe JPA:63ff).
 
- * Bei dieser Annotation handelt es sich um eine Interzeptor-Annotation (siehe MIP:68).
+ * Die @transactional Annotation bewirkt, dass fuer Methodenaufrufe auf Instanzen dieser Klasse
+ * eine Transaktion erstellt wird, mit welcher alle schreibenden Datenbankzugriffe assoziiert sind.
+ * Falls die Bean in andere Beans eingebunden wird, welche ihrerseits transaktionale Methoden verwenden,
+ * wird die dort ggf. erstellte Transaktion wieder verwendet (siehe JPA:71). Die Erstellung und der
+ * Abschluss / das Commit von Transaktionen wird durch den CDI Interzeptor-Mechanismus gehandhabt  (siehe MIP:68),
+ * d.h. der Abschluss erfolgt erst und nur dann, wenn die mit der Transaktion initial verbundene Methode
+ * abgeschlossen wurde / returned hat.
  */
 @Transactional
 public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameService {
