@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  * "${persistenceUnitName}" assoziierten Datenbestaende ermoeglicht. Durch Verwendung des
  * Qualifiers @${persistenceUnitName}DataAccessor koennen in einem all-in-one Deployment
  * verschiedene EntityManager fuer verschiedene Persistence Units innerhalb eines gemeinsamen
- * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:65-67).
+ * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:65-66).
  *
  * (Quellennachweis, nicht fuer ESS Ruecksprache: Siehe als Vorlgae fuer diese Bereitstellung eines EntityManagers fuer eine spezifische
  * PersistenceUnit: https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/)
@@ -26,21 +26,24 @@ public class ${persistenceUnitName}EntityManagerProvider {
 
     /*
      * Bei @${persistenceUnitName}DataAccessor handelt es sich um eine anwendungsspezifische
-     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (fuer Annotationen siehe BAS:50-60)
+     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (fuer Annotationen siehe BAS:51-61)
      */
     @Qualifier
-    /* ? Wie nennt man die Annotationstypen @Retention und @Target? (siehe BAS:57-58) Weshalb? */
+    /* ? Wie nennt man die Annotationstypen @Retention und @Target? (siehe BAS:59-60) Weshalb? */
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.FIELD)
     public static @interface ${persistenceUnitName}DataAccessor {
 
     }
 
+    /*
+     * Die @Produces Annotation markiert das Attribut em als "Producer" (MIP:67)
+     */
     @Produces
     /*
-     * Hier wird die oben deklarierte Qualifier-Annotation verwendet, d.h. unter Angabe von
-     * @${persistenceUnitName}DataAccessor kann der durch das Producer-Attribut bereit gestellt
-     * EntityManger von anderen CDI Komponenten angefordert werden.
+     * Hier wird die oben deklarierte Qualifier-Annotation verwendet (MIP:65-66), d.h. unter Angabe von
+     * @${persistenceUnitName}DataAccessor kann der Entity Manager als Wert des mit @Producer
+     * annotierten Attributs von anderen CDI Komponenten eindeutig angefordert werden.
      */
     @${persistenceUnitName}DataAccessor
     /*

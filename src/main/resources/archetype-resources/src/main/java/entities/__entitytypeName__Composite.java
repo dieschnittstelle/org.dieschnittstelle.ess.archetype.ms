@@ -14,10 +14,10 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * - als POJOs (bzw. Data Transfer Objekte) auf Seiten der Client-Anwendung Test${entitytypeName}CRUD und
  * an der Client-Server Schnittstelle der durch die server-seitige Anwendung bereit gestellten Web API
  * - als JPA Entities im Kontext der Verwendung des JPA Entity Managers in ${entitytypeName}CRUDImpl
- * (siehe SUM:19-20)
+ * (siehe SUM:18-19)
  *
  * ? ist die @Entity Annotation auf Ebene der Client-Anwendung relevant?
- * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:54)
+ * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:56)
  *
  */
 @Entity
@@ -50,7 +50,7 @@ public class ${entitytypeName}Composite {
     /*
      * Mittels des cascade Parameters wird angegeben, wie Instanzen von ${entitytypeName}Part
      * im Hinblick auf die Kaskadierung der auf ${entitytypeName}Composite durchgefuerten CRUD
-     * Operationen behandelt werden sollen (siehe JPA:55ff).
+     * Operationen behandelt werden sollen (siehe JPA:55-59).
      *
      * Koennte man CascadeType.ALL auch fuer eine @ManyToMany Assoziation sinnvoll angeben?
      */

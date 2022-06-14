@@ -23,7 +23,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Die @ApplicationScoped Annotation gibt an, dass eine Instanz dieser Klasse mit dem globalen Kontext der
  * Anwendung assoziiert ist, die die Klasse enthaelt, d.h. es wird durch den CDI Container nur eine
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
- * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:59ff).
+ * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:59-62).
  *
  * ? welche weiteren Kontexte / Geltungsbereiche sind fuer CDI vorgesehen?
  */
@@ -34,12 +34,12 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Transaktion verwenden, d.h. schreibende Zugriffe auf die verwendete Datenbank werden bis zur Rueckgabe
  * der jeweils aufgerufenen Methode nur "vorgemerkt" und erst dann durch Zugriff auf die Datenbank
  * umgesetzt. Falls Fehler auftreten, werden etwaige bereits getaetigten Zugriffe rueckgaengig gemacht
- * (siehe JPA:63ff).
+ * (siehe JPA:63-66).
 
  * Die @transactional Annotation bewirkt, dass fuer Methodenaufrufe auf Instanzen dieser Klasse
  * eine Transaktion erstellt wird, mit welcher alle schreibenden Datenbankzugriffe assoziiert sind.
  * Falls die Bean in andere Beans eingebunden wird, welche ihrerseits transaktionale Methoden verwenden,
- * wird die dort ggf. erstellte Transaktion wieder verwendet (siehe JPA:71). Die Erstellung und der
+ * wird die dort ggf. erstellte Transaktion wieder verwendet (siehe JPA:66). Die Erstellung und der
  * Abschluss / das Commit von Transaktionen wird durch den CDI Interzeptor-Mechanismus gehandhabt  (siehe MIP:68),
  * d.h. der Abschluss erfolgt erst und nur dann, wenn die mit der Transaktion initial verbundene Methode
  * abgeschlossen wurde / returned hat.
@@ -50,13 +50,13 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
     /*
      * Die @Inject Annotation bewirkt die Injektion eines Objekts, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
-     * ein Proxy-Objekt (siehe WSV:19-20 sowie SUM. Fuer Dependency Injection allgemein siehe JRS:63).
+     * ein Proxy-Objekt (siehe WSV:24-29 sowie SUM. Fuer Dependency Injection allgemein siehe JRS:63).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
-     * Ermittelbarkeit einer Implementierung (siehe MIP:64-67).
+     * Ermittelbarkeit einer Implementierung (siehe MIP:64-66).
      *
      * ? wie kann ein privates Instanzattribut, fuer das keine Setter-Methode existiert,
      * von aussen durch ein Framework wie den CDI Container gesetzt werden?
-     * (siehe dafuer die Aufzeichnung der Demo zu BAS "Direktzugriff auf Attribute", ca. 9min).
+     * (siehe dafuer die Aufzeichnung der Demo zu BAS aus dem W21 "Direktzugriff auf Attribute", ca. 9min).
      *
      * ? an welcher anderen Stelle dieser aus Client- und Server-Seite bestehenden Anwendung wird
      * ein Proxy Objekt fuer ${entitytypeName}CRUD verwendet?
