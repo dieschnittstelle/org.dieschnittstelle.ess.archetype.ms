@@ -56,7 +56,7 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
      *
      * ? wie kann ein privates Instanzattribut, fuer das keine Setter-Methode existiert,
      * von aussen durch ein Framework wie den CDI Container gesetzt werden?
-     * (siehe dafuer die Aufzeichnung der Demo zu BAS aus dem W21 "Direktzugriff auf Attribute", ca. 9min).
+     * (siehe dafuer die Aufzeichnung der Demo zu BAS "Direktzugriff auf Attribute", ca. 8:10min ff).
      *
      * ? an welcher anderen Stelle dieser aus Client- und Server-Seite bestehenden Anwendung wird
      * ein Proxy Objekt fuer ${entitytypeName}CRUD verwendet?
