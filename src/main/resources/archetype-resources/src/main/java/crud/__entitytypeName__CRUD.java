@@ -36,7 +36,7 @@ public interface ${entitytypeName}CRUD {
      * das id-Argument der Methode gebunden, d.h. server-seitig wird durch die JAX-RS Implementierung
      * der jeweilige String-Wert dieses Segments in einen long-Wert umgewandelt und dann die Methode aufgerufen,
      *
-     * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:18-21)
+     * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:18-22)
      */
     @GET
     @Path("/{id}")
