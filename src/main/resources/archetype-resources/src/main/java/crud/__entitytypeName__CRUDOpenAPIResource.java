@@ -12,6 +12,8 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import org.eclipse.microprofile.openapi.annotations.Operation;
+
 /*
  * CRUD Ressource, die fuer die OpenAPI Beschreibung der server-seitigen WebAPI beruecksichtigt wird
  * (derzeit scheinen Ressourcen bei Trennung von Interface und Implementierung ignoriert zu werden)
@@ -34,29 +36,34 @@ public class ${entitytypeName}CRUDOpenAPIResource {
     private ${entitytypeName}CRUD crudImpl;
 
     @GET
+    @Operation(operationId = "readAll${entitytypeName}Composites")
     public List<${entitytypeName}Composite> readAll${entitytypeName}Composites() {
         return crudImpl.readAll${entitytypeName}Composites();
     }
 
     @GET
     @Path("/{id}")
+    @Operation(operationId = "read${entitytypeName}Composite")
     public ${entitytypeName}Composite read${entitytypeName}Composite(@PathParam("id") long id) {
         return crudImpl.read${entitytypeName}Composite(id);
     }
 
     @POST
+    @Operation(operationId = "create${entitytypeName}Composite")
     public ${entitytypeName}Composite create${entitytypeName}Composite(${entitytypeName}Composite instance) {
         return crudImpl.create${entitytypeName}Composite(instance);
     }
 
     @PUT
     @Path("/{id}")
+    @Operation(operationId = "update${entitytypeName}Composite")
     public ${entitytypeName}Composite update${entitytypeName}Composite(@PathParam("id") long id,${entitytypeName}Composite instance) {
         return crudImpl.update${entitytypeName}Composite(id,instance);
     }
 
     @DELETE
     @Path("/{id}")
+    @Operation(operationId = "delete${entitytypeName}Composite")
     public boolean delete${entitytypeName}Composite(@PathParam("id") long id) {
         return crudImpl.delete${entitytypeName}Composite(id);
     }
