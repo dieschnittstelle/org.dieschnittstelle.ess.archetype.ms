@@ -1,6 +1,11 @@
 #set($hash = '#')
 ${hash} ${artifactId}
 
+${hash}${hash} Set JAVA_HOME environment variable
+in the console/terminal set JAVA_HOME to an appropriate JDK, e.g.:
+
+export JAVA_HOME=/Users/USERNAME/Library/Java/JavaVirtualMachines/semeru-11.0.17/Contents/Home
+
 ${hash}${hash} Build
 run inside the project directory:
 

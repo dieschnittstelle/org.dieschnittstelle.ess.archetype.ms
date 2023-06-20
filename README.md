@@ -16,6 +16,10 @@ when asked to "Confirm properties configuration" either input Y in order to take
 
 see the README.md file in the project folder created by the previous command.
 
+
+## Notes
+
+- the type identifier of the datasource in resources.xml is still 'javax.sql.DataSource', i.e. it does not use the jakarta-Prefix
   
 
 

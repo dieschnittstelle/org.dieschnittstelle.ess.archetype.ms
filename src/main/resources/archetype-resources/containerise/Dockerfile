@@ -1,5 +1,5 @@
 # Base Java image
-FROM williamyeh/java8
+FROM ibm-semeru-runtimes:open-11-jdk
 
 EXPOSE ${tomeeHttpPort}
 

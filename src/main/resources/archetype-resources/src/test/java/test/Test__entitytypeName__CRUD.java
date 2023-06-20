@@ -6,9 +6,9 @@ import ${groupId}.entities.${entitytypeName}Composite;
 import ${groupId}.entities.${entitytypeName}Part;
 
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
-import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 import java.net.URI;
 import java.util.HashSet;
 import java.util.List;
@@ -40,7 +40,7 @@ public class Test${entitytypeName}CRUD {
         RestClientBuilder builder = RestClientBuilder
                 .newBuilder()
                 .baseUri(uri)
-                .register(JacksonJaxbJsonProvider.class);
+                .register(JacksonJsonProvider.class);
 
         crudProxy = builder.build(${entitytypeName}CRUD.class);
         businessProxy = builder.build(${entitytypeName}NameService.class);

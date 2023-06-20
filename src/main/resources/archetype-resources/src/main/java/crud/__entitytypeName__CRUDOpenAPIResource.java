@@ -3,14 +3,14 @@ package ${groupId}.crud;
 import java.util.List;
 import ${groupId}.entities.${entitytypeName}Composite;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
+import jakarta.inject.Inject;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 /*
  * CRUD Ressource, die fuer die OpenAPI Beschreibung der server-seitigen WebAPI beruecksichtigt wird

@@ -3,11 +3,11 @@ package ${groupId}.crud;
 import java.util.List;
 import ${groupId}.entities.${entitytypeName}Composite;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
+import jakarta.inject.Inject;
 
 /*
  * Typische Implementierung eines CRUD Interfaces als zustandslose transaktionale
