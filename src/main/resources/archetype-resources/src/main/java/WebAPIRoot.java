@@ -14,7 +14,7 @@ import java.util.Set;
  * enthalten ist, bereit gestellt wird. Die URLs fuer die Zugriffe auf die einzelnen Ressourcen / "Services"
  * dieser Application ergeben sich aus der URL der Webanwendung, dem hier angegeben @ApplicationPath,
  * der @Path-URL der Ressourcenklasse bzw. des Interfaces sowie evtl. einer zusaetzlichen @Path Annotation
- * auf der zuzugreifenden Methode der Ressource (siehe JRS:53:"WebAPI mit JAX-RS und Resteasy/CXF").
+ * auf der zuzugreifenden Methode der Ressource (siehe JRS:54:"WebAPI mit JAX-RS und Resteasy/CXF").
  */
 @ApplicationPath("/api")
 public class WebAPIRoot extends Application {

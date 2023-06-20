@@ -13,7 +13,7 @@ import jakarta.inject.Inject;
  * Typische Implementierung eines CRUD Interfaces als zustandslose transaktionale
  * CDI Bean
  *
- * ? welche Voraussetzung muss gegeben sein, damit diese Klasse als @ApplicationScoped deklariert werden kann? (siehe MIP:53)
+ * ? welche Voraussetzung muss gegeben sein, damit diese Klasse als @ApplicationScoped deklariert werden kann? (siehe MIP:66)
  */
 @ApplicationScoped
 @Transactional
@@ -34,7 +34,7 @@ public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
         /*
          * einfaches Beispiel fuer die Verwendung der JPA Query Language
          * ? ist die Kenntnis der genauen Datenbankstruktur fuer die
-         * Formulierung von JPQL Abfragen erforderlich? (siehe JPA:45-46)
+         * Formulierung von JPQL Abfragen erforderlich? (siehe JPA:43-44)
          */
         return (List)em
                 .createQuery("SELECT e FROM ${entitytypeName}Composite e")
@@ -51,7 +51,7 @@ public class ${entitytypeName}CRUDImpl implements ${entitytypeName}CRUD {
         System.out.println("----- create${entitytypeName}Composite(): " + instance);
         /*
          * Welche Voraussetzung muss fuer eine erfolgreiche Ausfuehrung der persist() Methode
-         * fuer eine gegebene Instanz von ${entitytypeName}Composite erfuellt sein? (siehe JPA:63)
+         * fuer eine gegebene Instanz von ${entitytypeName}Composite erfuellt sein? (siehe JPA:61)
          */
         em.persist(instance);
         return instance;
