@@ -15,7 +15,7 @@ import ${groupId}.entities.${entitytypeName}Composite;
  * der HTTP Methoden entsprechend der HTTP Spezifikation (siehe JRS:31-32).
  *
  * ? welchem Pattern entspricht die Deklaration eines Interfaces fuer Datenzugriffe,
- * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:10-17)
+ * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:16-23)
  */
 @Path("/${entitytypeName}s")
 @Produces({MediaType.APPLICATION_JSON})
@@ -36,7 +36,7 @@ public interface ${entitytypeName}CRUD {
      * das id-Argument der Methode gebunden, d.h. server-seitig wird durch die JAX-RS Implementierung
      * der jeweilige String-Wert dieses Segments in einen long-Wert umgewandelt und dann die Methode aufgerufen,
      *
-     * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:20-24)
+     * ? welches typische Architekturmerkmal von Frameworks kommt bei diesem Aufruf zur Anwendung? (siehe BAS:18-22)
      */
     @GET
     @Path("/{id}")

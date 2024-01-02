@@ -23,7 +23,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Die @ApplicationScoped Annotation gibt an, dass eine Instanz dieser Klasse mit dem globalen Kontext der
  * Anwendung assoziiert ist, die die Klasse enthaelt, d.h. es wird durch den CDI Container nur eine
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
- * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:63-65).
+ * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:53-55).
  *
  * ? welche weiteren Kontexte / Geltungsbereiche sind fuer CDI vorgesehen?
  */
@@ -40,7 +40,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * eine Transaktion erstellt wird, mit welcher alle schreibenden Datenbankzugriffe assoziiert sind.
  * Falls die Bean in andere Beans eingebunden wird, welche ihrerseits transaktionale Methoden verwenden,
  * wird die dort ggf. erstellte Transaktion wieder verwendet (siehe JPA:64). Die Erstellung und der
- * Abschluss / das Commit von Transaktionen wird durch den CDI Interzeptor-Mechanismus gehandhabt  (siehe MIP:72),
+ * Abschluss / das Commit von Transaktionen wird durch den CDI Interzeptor-Mechanismus gehandhabt  (siehe MIP:62),
  * d.h. der Abschluss erfolgt erst und nur dann, wenn die mit der Transaktion initial verbundene Methode
  * abgeschlossen wurde / returned hat.
  */
@@ -52,7 +52,7 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
      * ein Proxy-Objekt (siehe WSV:23ff sowie SUM. Fuer Dependency Injection allgemein siehe JRS:64).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
-     * Ermittelbarkeit einer Implementierung (siehe MIP:68-70).
+     * Ermittelbarkeit einer Implementierung (siehe MIP:58-60).
      *
      * ? wie kann ein privates Instanzattribut, fuer das keine Setter-Methode existiert,
      * von aussen durch ein Framework wie den CDI Container gesetzt werden?

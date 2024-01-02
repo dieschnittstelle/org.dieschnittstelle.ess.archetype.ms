@@ -13,7 +13,7 @@ import jakarta.inject.Inject;
  * Typische Implementierung eines CRUD Interfaces als zustandslose transaktionale
  * CDI Bean
  *
- * ? welche Voraussetzung muss gegeben sein, damit diese Klasse als @ApplicationScoped deklariert werden kann? (siehe MIP:66)
+ * ? welche Voraussetzung muss gegeben sein, damit diese Klasse als @ApplicationScoped deklariert werden kann? (siehe MIP:56)
  */
 @ApplicationScoped
 @Transactional

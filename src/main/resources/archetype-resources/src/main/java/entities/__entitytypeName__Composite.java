@@ -17,7 +17,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * (siehe SUM:16-17, "Multiple Komponenten")
  *
  * ? ist die @Entity Annotation auf Ebene der Client-Anwendung relevant?
- * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:57)
+ * ? ist die Client-Anwendung ausfuehrbar, wenn die @Entity Annotationsklasse zur Laufzeit des Clients nicht bekannt ist? (siehe BAS:55)
  *
  */
 @Entity

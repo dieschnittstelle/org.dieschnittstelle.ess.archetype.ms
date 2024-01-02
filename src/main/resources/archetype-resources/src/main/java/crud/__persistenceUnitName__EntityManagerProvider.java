@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  * "${persistenceUnitName}" assoziierten Datenbestaende ermoeglicht. Durch Verwendung des
  * Qualifiers @${persistenceUnitName}DataAccessor koennen in einem all-in-one Deployment
  * verschiedene EntityManager fuer verschiedene Persistence Units innerhalb eines gemeinsamen
- * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:69-70).
+ * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:59-60).
  *
  * (Quellennachweis, nicht fuer ESS Ruecksprache: Siehe als Vorlgae fuer diese Bereitstellung eines EntityManagers fuer eine spezifische
  * PersistenceUnit: https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/)
@@ -26,10 +26,10 @@ public class ${persistenceUnitName}EntityManagerProvider {
 
     /*
      * Bei @${persistenceUnitName}DataAccessor handelt es sich um eine anwendungsspezifische
-     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (fuer Annotationen siehe BAS:53-62)
+     * Laufzeit-Annotation, die als CDI Qualifier deklariert wird. (fuer Annotationen siehe BAS:51-60)
      */
     @Qualifier
-    /* ? Wie nennt man die Annotationstypen @Retention und @Target? (siehe BAS:60-61) Weshalb? */
+    /* ? Wie nennt man die Annotationstypen @Retention und @Target? (siehe BAS:58-59) Weshalb? */
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.FIELD)
     public static @interface ${persistenceUnitName}DataAccessor {
@@ -37,11 +37,11 @@ public class ${persistenceUnitName}EntityManagerProvider {
     }
 
     /*
-     * Die @Produces Annotation markiert das Attribut em als "Producer" (MIP:71)
+     * Die @Produces Annotation markiert das Attribut em als "Producer" (MIP:61)
      */
     @Produces
     /*
-     * Hier wird die oben deklarierte Qualifier-Annotation verwendet (MIP:69-70), d.h. unter Angabe von
+     * Hier wird die oben deklarierte Qualifier-Annotation verwendet (MIP:59-60), d.h. unter Angabe von
      * @${persistenceUnitName}DataAccessor kann der Entity Manager als Wert des mit @Producer
      * annotierten Attributs von anderen CDI Komponenten eindeutig angefordert werden.
      */
