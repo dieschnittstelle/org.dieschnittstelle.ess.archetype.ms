@@ -16,7 +16,7 @@ import ${groupId}.entities.${entitytypeName}Composite;
  * Die @Path Annotation gibt die Wurzel-URL dieses Services bzw. dieser JAX-RS Ressource unterhalb der
  * URL der JAX-RS Application an (siehe dafuer die WebAPIRoot Klasse).
  */
-@Path("/${entitytypeName}Names")
+@Path("/${entitytypeName.toLowerCase()}Names")
 /*
  * Die @Produces/@Consumes Annotationen geben an, dass beim Argumente und Rueckgabewerte (falls vorhanden)
  * im JSON Format uebermittelt werden

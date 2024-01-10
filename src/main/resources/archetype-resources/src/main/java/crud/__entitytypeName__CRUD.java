@@ -17,7 +17,7 @@ import ${groupId}.entities.${entitytypeName}Composite;
  * ? welchem Pattern entspricht die Deklaration eines Interfaces fuer Datenzugriffe,
  * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:16-23)
  */
-@Path("/${entitytypeName}s")
+@Path("/${entitytypeName.toLowerCase()}s")
 @Produces({MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_JSON})
 public interface ${entitytypeName}CRUD {

@@ -10,7 +10,7 @@
 	function readAllInstances() {
 		//alert("readAllInstances()");
 
-		callWebapp("GET", "/${entitytypeName}s", null, function(xmlhttp) {
+		callWebapp("GET", "/${entitytypeName.toLowerCase()}s", null, function(xmlhttp) {
 			instances = JSON.parse(xmlhttp.responseText);
 			drawInstancesTable();
 		});
@@ -20,7 +20,7 @@
 
 		//alert("delete: " + instanceId);
 
-		callWebapp("DELETE", "/${entitytypeName}s/" + instanceId, null, function(xmlhttp) {
+		callWebapp("DELETE", "/${entitytypeName.toLowerCase()}s/" + instanceId, null, function(xmlhttp) {
 					if ("true" == xmlhttp.responseText) {
 						var deleteIndex = -1;
 						// we iterate over the list until we have found the item
@@ -50,7 +50,7 @@
 		part.name = createForm.namePart.value;
 		instance.parts = [part];
 
-		callWebapp("POST", "/${entitytypeName}s", instance, function(xmlhttp) {
+		callWebapp("POST", "/${entitytypeName.toLowerCase()}s", instance, function(xmlhttp) {
 			//alert("read serialised: " + xmlhttp.responseText);
 
 			createdInstance = eval("(" + xmlhttp.responseText + ")");
@@ -198,7 +198,7 @@
 	function showInstancesNames() {
 		const instancesNamesEl = document.getElementById("instancesNames");
 
-		callWebapp("GET", "/${entitytypeName}Names", null, function(xmlhttp) {
+		callWebapp("GET", "/${entitytypeName.toLowerCase()}Names", null, function(xmlhttp) {
 			const names = JSON.parse(xmlhttp.responseText);
 			instancesNamesEl.innerHTML = "";
 			names.forEach(n => {

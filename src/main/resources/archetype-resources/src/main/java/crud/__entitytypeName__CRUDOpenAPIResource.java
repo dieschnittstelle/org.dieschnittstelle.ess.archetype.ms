@@ -24,7 +24,7 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
  */
 @ApplicationScoped
 @Transactional
-@Path("/opi/${entitytypeName}s")
+@Path("/opi/${entitytypeName.toLowerCase()}s")
 @Produces({MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_JSON})
 public class ${entitytypeName}CRUDOpenAPIResource {
