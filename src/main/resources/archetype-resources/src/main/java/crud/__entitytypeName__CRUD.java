@@ -15,7 +15,7 @@ import ${groupId}.entities.${entitytypeName}Composite;
  * der HTTP Methoden entsprechend der HTTP Spezifikation (siehe JRS:31-32).
  *
  * ? welchem Pattern entspricht die Deklaration eines Interfaces fuer Datenzugriffe,
- * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:16-23)
+ * gegen das die Geschaeftslogikschicht einer Anwendung implementiert werden kann? (siehe PAT:10-17)
  */
 @Path("/${entitytypeName.toLowerCase()}s")
 @Produces({MediaType.APPLICATION_JSON})

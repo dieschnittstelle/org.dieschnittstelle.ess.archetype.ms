@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  * "${persistenceUnitName}" assoziierten Datenbestaende ermoeglicht. Durch Verwendung des
  * Qualifiers @${persistenceUnitName}DataAccessor koennen in einem all-in-one Deployment
  * verschiedene EntityManager fuer verschiedene Persistence Units innerhalb eines gemeinsamen
- * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:59-60).
+ * CDI Containers verwendet und eindeutig identifiziert werden (siehe MIP:61-62).
  *
  * (Quellennachweis, nicht fuer ESS Ruecksprache: Siehe als Vorlgae fuer diese Bereitstellung eines EntityManagers fuer eine spezifische
  * PersistenceUnit: https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/)
@@ -37,11 +37,11 @@ public class ${persistenceUnitName}EntityManagerProvider {
     }
 
     /*
-     * Die @Produces Annotation markiert das Attribut em als "Producer" (MIP:61)
+     * Die @Produces Annotation markiert das Attribut em als "Producer" (MIP:63)
      */
     @Produces
     /*
-     * Hier wird die oben deklarierte Qualifier-Annotation verwendet (MIP:59-60), d.h. unter Angabe von
+     * Hier wird die oben deklarierte Qualifier-Annotation verwendet (MIP:61-62), d.h. unter Angabe von
      * @${persistenceUnitName}DataAccessor kann der Entity Manager als Wert des mit @Producer
      * annotierten Attributs von anderen CDI Komponenten eindeutig angefordert werden.
      */
@@ -49,7 +49,7 @@ public class ${persistenceUnitName}EntityManagerProvider {
     /*
      * Die @PersistenceContext Annotation ist eine JPA-spezifische Dependency Injection Annotation,
      * auf deren Grundlage eine EntityManager Instanz fuer die angegebene Persistence Unit bereit
-     * gestellt wird (siehe JPA:74 fuer das "Big Picture" von CDI+JPA sowie die Konfigurationsdatei
+     * gestellt wird (siehe JPA:77 fuer das "Big Picture" von CDI+JPA sowie die Konfigurationsdatei
      * persistence.xml im resouces/META-INF Verzeichnis fuer die Deklaration der Persistence Unit).
      */
     @PersistenceContext(unitName = "${persistenceUnitName}_PU")

@@ -18,9 +18,9 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
  * CRUD Ressource, die fuer die OpenAPI Beschreibung der server-seitigen WebAPI beruecksichtigt wird
  * (derzeit scheinen Ressourcen bei Trennung von Interface und Implementierung ignoriert zu werden)
  *
- * Wozu dient die OpenAPI Beschreibungssprache, wie ist ein OpenAPI Dokument aufgebaut? (siehe OPI:46-47 und 55-56)
- * Welche Aspekte eines Java Datenmodells koennen mit OpenAPI nicht oder nur partiell ausgedrueckt werden? (siehe OPI:49-50)
- * Welchen Vorteil bietet die Beschreibung eines Service Interfaces mittels OpenAPI verglichen mit der Beschreibung mit JAX-RS? (siehe: OPI:39-40 und 44)
+ * Wozu dient die OpenAPI Beschreibungssprache, wie ist ein OpenAPI Dokument aufgebaut? (siehe OPI:23 und 31-32)
+ * Welche Aspekte eines Java Datenmodells koennen mit OpenAPI nicht oder nur partiell ausgedrueckt werden? (siehe OPI:34-35)
+ * Welchen Vorteil bietet die Beschreibung eines Service Interfaces mittels OpenAPI verglichen mit der Beschreibung mit JAX-RS? (siehe: OPI:24-25 und 41-42)
  */
 @ApplicationScoped
 @Transactional

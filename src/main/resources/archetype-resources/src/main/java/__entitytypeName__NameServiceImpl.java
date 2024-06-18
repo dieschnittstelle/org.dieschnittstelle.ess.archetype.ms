@@ -23,7 +23,7 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Die @ApplicationScoped Annotation gibt an, dass eine Instanz dieser Klasse mit dem globalen Kontext der
  * Anwendung assoziiert ist, die die Klasse enthaelt, d.h. es wird durch den CDI Container nur eine
  * einzige Instanz der Klasse erzeugt, die alle Aufrufe entgegennimmt. Dieser globale Kontext entspricht
- * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:53-55).
+ * dem ServletContext von Ja*a EE Web Applikationen (siehe MIP:55-58).
  *
  * ? welche weiteren Kontexte / Geltungsbereiche sind fuer CDI vorgesehen?
  */
@@ -34,13 +34,13 @@ import ${groupId}.crud.${entitytypeName}CRUD;
  * Transaktion verwenden, d.h. schreibende Zugriffe auf die verwendete Datenbank werden bis zur Rueckgabe
  * der jeweils aufgerufenen Methode nur "vorgemerkt" und erst dann durch Zugriff auf die Datenbank
  * umgesetzt. Falls Fehler auftreten, werden etwaige bereits getaetigten Zugriffe rueckgaengig gemacht
- * (siehe JPA:61-64).
+ * (siehe JPA:64-67).
 
  * Die @transactional Annotation bewirkt, dass fuer Methodenaufrufe auf Instanzen dieser Klasse
  * eine Transaktion erstellt wird, mit welcher alle schreibenden Datenbankzugriffe assoziiert sind.
  * Falls die Bean in andere Beans eingebunden wird, welche ihrerseits transaktionale Methoden verwenden,
- * wird die dort ggf. erstellte Transaktion wieder verwendet (siehe JPA:64). Die Erstellung und der
- * Abschluss / das Commit von Transaktionen wird durch den CDI Interzeptor-Mechanismus gehandhabt  (siehe MIP:62),
+ * wird die dort ggf. erstellte Transaktion wieder verwendet (siehe JPA:67). Die Erstellung und der
+ * Abschluss / das Commit von Transaktionen wird durch den CDI Interzeptor-Mechanismus gehandhabt  (siehe MIP:64),
  * d.h. der Abschluss erfolgt erst und nur dann, wenn die mit der Transaktion initial verbundene Methode
  * abgeschlossen wurde / returned hat.
  */
@@ -50,9 +50,9 @@ public class ${entitytypeName}NameServiceImpl implements ${entitytypeName}NameSe
     /*
      * Die @Inject Annotation bewirkt die Injektion eines Objekts, ueber das der Zugriff auf eine Implementierung
      * des angegebenen Bean-Interfaces ermoeglicht wird. Im vorliegenden Fall handelt es sich hierbei um
-     * ein Proxy-Objekt (siehe WSV:23ff sowie SUM. Fuer Dependency Injection allgemein siehe JRS:64).
+     * ein Proxy-Objekt (siehe WSV:27ff sowie SUM. Fuer Dependency Injection allgemein siehe JRS:64).
      * Voraussetzung dafuer, dass die Injektion durchgefuehrt werden kann, ist die eindeutige
-     * Ermittelbarkeit einer Implementierung (siehe MIP:58-60).
+     * Ermittelbarkeit einer Implementierung (siehe MIP:60-62).
      *
      * ? wie kann ein privates Instanzattribut, fuer das keine Setter-Methode existiert,
      * von aussen durch ein Framework wie den CDI Container gesetzt werden?

@@ -31,10 +31,10 @@ public class Test${entitytypeName}CRUD {
         /*
          * Hier wird mit den Mitteln der Rest Client Implementierung aus Eclipse Microprofile
          * fuer die beiden angegebenen Interfaces ${entitytypeName}CRUD und
-         * ${entitytypeName}NameService jeweils ein Proxy Objekt generiert (siehe WSV:23ff).
+         * ${entitytypeName}NameService jeweils ein Proxy Objekt generiert (siehe WSV:27ff).
          *
          * ? wie und wo kann dieser Mechanismus im Rahmen von Dependency Injection
-         * im Hintergrund genutzt werden? (siehe MSD:39)
+         * im Hintergrund genutzt werden? (siehe MSD:41)
          */
         URI uri = URI.create("http://localhost:${tomeeHttpPort}/api");
         RestClientBuilder builder = RestClientBuilder
