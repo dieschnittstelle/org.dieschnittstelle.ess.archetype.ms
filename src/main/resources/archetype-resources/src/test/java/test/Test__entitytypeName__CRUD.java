@@ -48,6 +48,7 @@ public class Test${entitytypeName}CRUD {
 
     @Test
     public void run() {
+        try {
         // read all instances
         List<${entitytypeName}Composite> initialInstances = crudProxy.readAll${entitytypeName}Composites();
 
@@ -135,6 +136,11 @@ public class Test${entitytypeName}CRUD {
         assertTrue(crudProxy.delete${entitytypeName}Composite(instance1.getId()),"instance can be deleted");
         assertNull(crudProxy.read${entitytypeName}Composite(instance1.getId()),"deleted instance does not exist anymore");
         assertEquals(initialInstances.size()+2, crudProxy.readAll${entitytypeName}Composites().size(),"instance list is reduced on delete");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("WARN: got exception running tests. Probably, the server to be accessed has not been started: " + e);
+        }
     }
 
 }

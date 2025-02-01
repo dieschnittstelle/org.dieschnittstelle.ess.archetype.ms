@@ -10,8 +10,8 @@
     <name>${artifactId}</name>
 
     <properties>
-        <tomee.version>9.0.0</tomee.version>
-        <microprofile.version>5.0</microprofile.version>
+        <tomee.version>10.0.0</tomee.version>
+        <microprofile.version>6.0</microprofile.version>
         <junit.version>5.9.0</junit.version>
     </properties>
 
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
