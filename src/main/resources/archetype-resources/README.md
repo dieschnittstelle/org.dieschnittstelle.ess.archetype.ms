@@ -1,10 +1,10 @@
 #set($hash = '#')
 ${hash} ${artifactId}
 
-${hash}${hash} Set JAVA_HOME environment variable
-in the console/terminal set JAVA_HOME to the semeru 11 JDK, e.g.:
+${hash}${hash} Set JAVA_HOME environment variable (optional)
+in case there are issues running maven: in the console/terminal set JAVA_HOME to the currently used semeru JDK, replacing USERNAME, e.g.:
 
-export JAVA_HOME=/Users/USERNAME/Library/Java/JavaVirtualMachines/semeru-11.0.17/Contents/Home
+export JAVA_HOME=/Users/USERNAME/Library/Java/JavaVirtualMachines/semeru-17.0.9/Contents/Home
 
 Alternatively, set the JDK in the "Project Structure" of IDEA and use the Maven tool window for running the mvn commands.
 
