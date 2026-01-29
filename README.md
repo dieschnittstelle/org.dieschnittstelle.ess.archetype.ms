@@ -5,6 +5,8 @@ run inside the project directory:
 
 mvn clean install
 
+Note that running mvn from the maven tool window inside of IDEA 2025.3.2 did not work.
+
 ## Create a new project from the archetype
 from command line run: 
 
